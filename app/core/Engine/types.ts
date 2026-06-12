@@ -127,11 +127,13 @@ import {
   PhishingControllerState,
 } from '@metamask/phishing-controller';
 import {
-  PreferencesController,
   PreferencesControllerActions,
   PreferencesControllerEvents,
-  PreferencesState,
 } from '@metamask/preferences-controller';
+import type {
+  PreferencesControllerWithSavedGasFees,
+  PreferencesStateWithSavedGasFees,
+} from './controllers/preferences-controller-types';
 import {
   RampsController,
   RampsControllerState,
@@ -794,7 +796,7 @@ export type MessengerClients = {
   PermissionController: PermissionController<any, any>;
   SelectedNetworkController: SelectedNetworkController;
   PhishingController: PhishingController;
-  PreferencesController: PreferencesController;
+  PreferencesController: PreferencesControllerWithSavedGasFees;
   RampsController: RampsController;
   RemoteFeatureFlagController: RemoteFeatureFlagController;
   TokenBalancesController: TokenBalancesController;
@@ -889,7 +891,7 @@ export type EngineState = {
   KeyringController: KeyringControllerState;
   NetworkController: NetworkState;
   NetworkEnablementController: NetworkEnablementControllerState;
-  PreferencesController: PreferencesState;
+  PreferencesController: PreferencesStateWithSavedGasFees;
   RemoteFeatureFlagController: RemoteFeatureFlagControllerState;
   RampsController: RampsControllerState;
   PhishingController: PhishingControllerState;
