@@ -16,7 +16,7 @@ import {
 import { usePerpsEventTracking } from './usePerpsEventTracking';
 import { usePerpsMeasurement } from './usePerpsMeasurement';
 import { usePerpsTrading } from './usePerpsTrading';
-import { PERPS_CHART_EVENT_PROPERTY } from '../utils/analytics/chartInstrumentation';
+import { getPerpsChartAnalyticsPropertiesForLibrary } from '../utils/analytics/chartInstrumentation';
 
 interface PerpsChartTrackingData {
   chartLibrary?: string;
@@ -115,8 +115,10 @@ export function usePerpsOrderExecution(
                 orderParams.trackingData.source;
             }
             if (chartLibrary) {
-              partialProps[PERPS_CHART_EVENT_PROPERTY.CHART_LIBRARY] =
-                chartLibrary;
+              Object.assign(
+                partialProps,
+                getPerpsChartAnalyticsPropertiesForLibrary(chartLibrary),
+              );
             }
             if (orderParams.trackingData?.tradeWithToken === true) {
               if (orderParams.trackingData.mmPayTokenSelected != null) {
@@ -192,8 +194,10 @@ export function usePerpsOrderExecution(
             orderParams.trackingData as PerpsChartTrackingData | undefined
           )?.chartLibrary;
           if (chartLibrary) {
-            failedProps[PERPS_CHART_EVENT_PROPERTY.CHART_LIBRARY] =
-              chartLibrary;
+            Object.assign(
+              failedProps,
+              getPerpsChartAnalyticsPropertiesForLibrary(chartLibrary),
+            );
           }
           if (orderParams.trackingData?.tradeWithToken === true) {
             if (orderParams.trackingData.mmPayTokenSelected != null) {
@@ -267,8 +271,10 @@ export function usePerpsOrderExecution(
           orderParams.trackingData as PerpsChartTrackingData | undefined
         )?.chartLibrary;
         if (chartLibrary) {
-          exceptionProps[PERPS_CHART_EVENT_PROPERTY.CHART_LIBRARY] =
-            chartLibrary;
+          Object.assign(
+            exceptionProps,
+            getPerpsChartAnalyticsPropertiesForLibrary(chartLibrary),
+          );
         }
         if (orderParams.trackingData?.tradeWithToken === true) {
           if (orderParams.trackingData.mmPayTokenSelected != null) {
