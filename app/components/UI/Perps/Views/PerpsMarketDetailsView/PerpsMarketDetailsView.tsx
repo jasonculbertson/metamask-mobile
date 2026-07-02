@@ -135,7 +135,6 @@ import { selectSelectedInternalAccountAddress } from '../../../../../selectors/a
 import { BUTTON_COLOR_TEST } from '../../utils/abTesting/tests';
 import { usePerpsABTest } from '../../utils/abTesting/usePerpsABTest';
 import {
-  getPerpsChartAnalyticsProperties,
   getPerpsChartAnalyticsPropertiesForLibrary,
   getPerpsChartLibrary,
   PERPS_CHART_EVENT_VALUE,
@@ -1295,9 +1294,6 @@ const PerpsMarketDetailsView: React.FC<PerpsMarketDetailsViewProps> = () => {
       Logger.error(new Error(errorMessage), {
         tags: { feature: PERPS_CONSTANTS.FeatureName },
       });
-      const errorChartAnalyticsProperties = getPerpsChartAnalyticsProperties(
-        isAdvancedChartEnabled,
-      );
       track(MetaMetricsEvents.PERPS_ERROR, {
         [PERPS_EVENT_PROPERTY.ERROR_TYPE]: PERPS_EVENT_VALUE.ERROR_TYPE.WARNING,
         [PERPS_EVENT_PROPERTY.ERROR_MESSAGE]: errorMessage,
@@ -1306,7 +1302,7 @@ const PerpsMarketDetailsView: React.FC<PerpsMarketDetailsViewProps> = () => {
         [PERPS_EVENT_PROPERTY.SCREEN_TYPE]:
           PERPS_EVENT_VALUE.SCREEN_TYPE.ASSET_DETAILS,
         [PERPS_EVENT_PROPERTY.ASSET]: market?.symbol || '',
-        ...errorChartAnalyticsProperties,
+        ...chartAnalyticsProperties,
       });
       if (isAdvancedChartEnabled) {
         setEffectiveChartLibrary(
@@ -1338,6 +1334,7 @@ const PerpsMarketDetailsView: React.FC<PerpsMarketDetailsViewProps> = () => {
     [
       isAdvancedChartEnabled,
       market?.symbol,
+      chartAnalyticsProperties,
       marketDetailsScreenViewedProperties,
       track,
     ],
