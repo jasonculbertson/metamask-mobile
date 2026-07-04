@@ -81,8 +81,6 @@ import PerpsOrderHeader from '../../components/PerpsOrderHeader';
 import PerpsOrderTypeBottomSheet from '../../components/PerpsOrderTypeBottomSheet';
 import PerpsSlider from '../../components/PerpsSlider';
 import {
-  PERPS_EVENT_PROPERTY,
-  PERPS_EVENT_VALUE,
   DECIMAL_PRECISION_CONFIG,
   PERPS_CONSTANTS,
   getPerpsDisplaySymbol,
@@ -94,6 +92,10 @@ import {
   type Position,
   ORDER_SLIPPAGE_CONFIG,
 } from '@metamask/perps-controller';
+import {
+  PERPS_EVENT_PROPERTY,
+  PERPS_EVENT_VALUE,
+} from '@metamask/perps-controller/constants';
 import { bpsToPercent } from '../../constants/slippageConfig';
 import {
   PerpsOrderProvider,
@@ -134,11 +136,6 @@ import {
 } from '../../selectors/featureFlags';
 import { BUTTON_COLOR_TEST } from '../../utils/abTesting/tests';
 import { usePerpsABTest } from '../../utils/abTesting/usePerpsABTest';
-import {
-  PERPS_CHART_EVENT_PROPERTY,
-  PERPS_CHART_EVENT_VALUE,
-  getPerpsChartLibrary,
-} from '../../utils/analytics/chartInstrumentation';
 import {
   formatPerpsFiat,
   PRICE_RANGES_MINIMAL_VIEW,
@@ -188,6 +185,11 @@ interface OrderRouteParams {
   defaultMaxLeverage?: number;
 }
 
+const getChartLibrary = (isAdvancedChartEnabled: boolean) =>
+  isAdvancedChartEnabled
+    ? PERPS_EVENT_VALUE.CHART_LIBRARY.ADVANCED
+    : PERPS_EVENT_VALUE.CHART_LIBRARY.LIGHTWEIGHT;
+
 interface PerpsOrderViewContentProps {
   hideTPSL?: boolean;
   defaultSzDecimals?: number;
@@ -222,7 +224,7 @@ const PerpsOrderViewContentBase: React.FC<PerpsOrderViewContentProps> = ({
     selectPerpsAdvancedChartEnabledFlag,
   );
   const chartLibrary =
-    route.params?.chartLibrary ?? getPerpsChartLibrary(isAdvancedChartEnabled);
+    route.params?.chartLibrary ?? getChartLibrary(isAdvancedChartEnabled);
   const fromTokenDetails = route.params?.fromTokenDetails ?? false;
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
@@ -421,9 +423,8 @@ const PerpsOrderViewContentBase: React.FC<PerpsOrderViewContentProps> = ({
         : PERPS_EVENT_VALUE.DIRECTION.SHORT,
     [PERPS_EVENT_PROPERTY.SOURCE]:
       source ?? PERPS_EVENT_VALUE.SOURCE.PERP_ASSET_SCREEN,
-    [PERPS_CHART_EVENT_PROPERTY.CHART_LIBRARY]: chartLibrary,
-    [PERPS_CHART_EVENT_PROPERTY.ASSET_TYPE]:
-      PERPS_CHART_EVENT_VALUE.ASSET_TYPE.PERP,
+    [PERPS_EVENT_PROPERTY.CHART_LIBRARY]: chartLibrary,
+    [PERPS_EVENT_PROPERTY.ASSET_TYPE]: PERPS_EVENT_VALUE.ASSET_TYPE.PERP,
     [PERPS_EVENT_PROPERTY.OPEN_POSITION]: currentMarketPosition ? 1 : 0,
     [PERPS_EVENT_PROPERTY.OUTAGE_BANNER_SHOWN]:
       isServiceInterruptionBannerEnabled,

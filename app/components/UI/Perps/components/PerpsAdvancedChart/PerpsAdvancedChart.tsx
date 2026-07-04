@@ -36,7 +36,7 @@ import TradingViewChart, {
   type TPSLLines,
 } from '../TradingViewChart/TradingViewChart';
 import { getPerpsVolumeColors } from '../../utils/chartColors';
-import { PERPS_CHART_EVENT_VALUE } from '../../utils/analytics/chartInstrumentation';
+import { PERPS_EVENT_VALUE } from '@metamask/perps-controller/constants';
 import performance from 'react-native-performance';
 
 export interface PerpsAdvancedChartProps {
@@ -333,7 +333,7 @@ const PerpsAdvancedChart: React.FC<PerpsAdvancedChartProps> = ({
         symbol,
         interval: interval as string,
         surface,
-        chart_library: PERPS_CHART_EVENT_VALUE.CHART_LIBRARY.ADVANCED,
+        chart_library: PERPS_EVENT_VALUE.CHART_LIBRARY.ADVANCED,
       },
     });
   }, [ohlcvSeriesKey, symbol, interval, surface]);
@@ -364,7 +364,7 @@ const PerpsAdvancedChart: React.FC<PerpsAdvancedChartProps> = ({
           symbol,
           interval: interval as string,
           surface,
-          chart_library: PERPS_CHART_EVENT_VALUE.CHART_LIBRARY.ADVANCED,
+          chart_library: PERPS_EVENT_VALUE.CHART_LIBRARY.ADVANCED,
           transition: open.transition,
           chart_load_latency_ms: totalVisibleMs,
           first_candle_rendered: ohlcvData.length > 0,
@@ -401,7 +401,7 @@ const PerpsAdvancedChart: React.FC<PerpsAdvancedChartProps> = ({
             symbol,
             interval: interval as string,
             surface,
-            chart_library: PERPS_CHART_EVENT_VALUE.CHART_LIBRARY.ADVANCED,
+            chart_library: PERPS_EVENT_VALUE.CHART_LIBRARY.ADVANCED,
             fallbackToLightweight: true,
             errorMessage: error.slice(0, 200),
           },
