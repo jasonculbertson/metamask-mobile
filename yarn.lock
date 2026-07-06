@@ -8087,9 +8087,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/assets-controllers@npm:^109.2.1, @metamask/assets-controllers@npm:^109.3.0":
-  version: 109.3.0
-  resolution: "@metamask/assets-controllers@npm:109.3.0"
+"@metamask/assets-controllers@npm:@metamask-previews/assets-controllers@109.3.0-preview-486a2d116":
+  version: 109.3.0-preview-486a2d116
+  resolution: "@metamask-previews/assets-controllers@npm:109.3.0-preview-486a2d116"
   dependencies:
     "@ethereumjs/util": "npm:^9.1.0"
     "@ethersproject/abi": "npm:^5.7.0"
@@ -8108,7 +8108,7 @@ __metadata:
     "@metamask/eth-query": "npm:^4.0.0"
     "@metamask/keyring-api": "npm:^23.3.0"
     "@metamask/keyring-controller": "npm:^27.1.0"
-    "@metamask/messenger": "npm:^1.2.0"
+    "@metamask/messenger": "npm:^2.0.0"
     "@metamask/metamask-eth-abis": "npm:^3.1.1"
     "@metamask/multichain-account-service": "npm:^11.1.0"
     "@metamask/network-controller": "npm:^34.0.0"
@@ -8140,7 +8140,7 @@ __metadata:
   peerDependencies:
     "@metamask/providers": ^22.0.0
     webextension-polyfill: ^0.10.0 || ^0.11.0 || ^0.12.0
-  checksum: 10/496f8a91b52c89d0b3ea3dc9c7bf7e9a0933b0b02dcf783e83a7654d52f02c4e9e35090b73b25064d86983dca226779878a3e3d6e5248170bda752ac32736dcd
+  checksum: 10/1dbd4549fcf77c94d7581f47824bc5a573b839ef5593a978ed4cc9ff937ac2816c050b0bc79c5ab684677670716d4900a04106e8dd8387f85d8e2ee6a283a36d
   languageName: node
   linkType: hard
 

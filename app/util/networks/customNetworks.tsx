@@ -422,6 +422,7 @@ export const NETWORK_CHAIN_ID: {
   readonly STABLE_MAINNET: '0x3dc';
   readonly ARC: '0x13b2';
   readonly KONET_MAINNET: '0x4341';
+  readonly GNOSIS: '0x64';
 } & typeof CHAIN_IDS = {
   FLARE_MAINNET: '0xe',
   SONGBIRD_TESTNET: '0x13',
@@ -502,6 +503,7 @@ export const CustomNetworkImgMapping: Record<Hex, string> = {
   [NETWORK_CHAIN_ID.NOMINA]: require('../../images/nomina.png'),
   [NETWORK_CHAIN_ID.XRPLEVM]: require('../../images/xrplevm.png'),
   [NETWORK_CHAIN_ID.FRAXTAL]: require('../../images/fraxtal.png'),
+  [NETWORK_CHAIN_ID.GNOSIS]: require('../../images/gnosis.png'),
   [NETWORK_CHAIN_ID.XDC]: require('../../images/xdc.png'),
   [NETWORK_CHAIN_ID.MEGAETH_MAINNET]: require('../../images/megaeth-mainnet-logo.png'),
   [NETWORK_CHAIN_ID.MEGAETH_TESTNET_V2]: require('../../images/megaeth-testnet-logo.png'),
