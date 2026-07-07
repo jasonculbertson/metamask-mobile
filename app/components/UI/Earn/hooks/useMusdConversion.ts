@@ -3,9 +3,8 @@ import {
   TransactionType,
 } from '@metamask/transaction-controller';
 import { Hex } from '@metamask/utils';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { isEqual } from 'lodash';
 import Engine from '../../../../core/Engine';
 import Logger from '../../../../util/Logger';
 import { useNavigation } from '@react-navigation/native';
@@ -16,7 +15,7 @@ import { selectSelectedInternalAccountByScope } from '../../../../selectors/mult
 import { selectMusdConversionEducationSeen } from '../../../../reducers/user';
 import { trace, TraceName, TraceOperation } from '../../../../util/trace';
 import { createMusdConversionTransaction } from '../utils/musdConversionTransaction';
-import { selectPendingApprovals } from '../../../../selectors/approvalController';
+import { selectPendingApprovalIds } from '../../../../selectors/approvalController';
 import { RootState } from '../../../../reducers';
 import { selectTransactionsByIds } from '../../../../selectors/transactionController';
 import { AssetType } from '../../../Views/confirmations/types/token';
@@ -165,12 +164,7 @@ export const useMusdConversion = () => {
   const [error, setError] = useState<string | null>(null);
   const navigation = useNavigation();
 
-  const pendingApprovals = useSelector(selectPendingApprovals, isEqual);
-
-  const pendingApprovalIds = useMemo(
-    () => Object.keys(pendingApprovals ?? {}),
-    [pendingApprovals],
-  );
+  const pendingApprovalIds = useSelector(selectPendingApprovalIds);
 
   const pendingTransactionMetas = useSelector((state: RootState) =>
     selectTransactionsByIds(state, pendingApprovalIds),
