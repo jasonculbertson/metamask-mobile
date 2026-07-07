@@ -9,13 +9,11 @@ import {
   useTransactionPayFiatPayment,
   useTransactionPayIsMaxAmount,
   useTransactionPayIsPostQuote,
+  useTransactionPayQuoteValidationError,
   useTransactionPayQuotes,
   useTransactionPayRequiredTokens,
   useTransactionPaySourceAmounts,
 } from '../pay/useTransactionPayData';
-import { useTransactionMetadataRequest } from '../transactions/useTransactionMetadataRequest';
-import { QUOTE_REQUIRED_TRANSACTION_TYPES } from '../../constants/confirmations';
-import { hasTransactionType } from '../../utils/transaction';
 
 export function useNoPayTokenQuotesAlert() {
   const { payToken } = useTransactionPayToken();
@@ -26,7 +24,7 @@ export function useNoPayTokenQuotesAlert() {
   const requiredTokens = useTransactionPayRequiredTokens();
   const isPostQuote = useTransactionPayIsPostQuote();
   const isMaxAmount = useTransactionPayIsMaxAmount();
-  const transactionMeta = useTransactionMetadataRequest();
+  const quoteValidationError = useTransactionPayQuoteValidationError();
 
   const fiatAmount = Number(fiatPayment?.amountFiat);
   const hasValidFiatAmount = Number.isFinite(fiatAmount) && fiatAmount > 0;
@@ -63,10 +61,11 @@ export function useNoPayTokenQuotesAlert() {
     !fiatPayment?.rampsQuote &&
     quotes?.length === 0;
 
-  // Post-quote flows (e.g. money account withdraw) where `sourceAmounts` is
-  // non-empty but no quote was returned. The non-fiat branch above may not
-  // fire, so we also emit the alert when the user has entered a positive
-  // input amount but no quote is available.
+  // Post-quote flows (e.g. money account withdraw MUSD -> MUSD) can end up with
+  // an empty `sourceAmounts` when the source and destination tokens match and
+  // get filtered out in `calculatePostQuoteSourceAmounts`. In that case the
+  // non-fiat branch above never fires, so we also emit the alert whenever the
+  // user has entered a positive input amount but no quote is available.
   const hasPositiveRequiredAmount = (requiredTokens ?? []).some(
     (t) =>
       !t.skipIfBalance &&
@@ -77,21 +76,14 @@ export function useNoPayTokenQuotesAlert() {
     isPostQuote &&
     Boolean(payToken) &&
     !isQuotesLoading &&
-    sourceAmounts?.length &&
-    !quotes?.length &&
-    hasPositiveRequiredAmount;
-
-  const shouldShowQuoteRequiredNoQuotesAlert =
-    hasTransactionType(transactionMeta, QUOTE_REQUIRED_TRANSACTION_TYPES) &&
-    !isQuotesLoading &&
+    !sourceAmounts?.length &&
     !quotes?.length &&
     hasPositiveRequiredAmount;
 
   const showAlert =
     shouldShowNonFiatNoQuotesAlert ||
     shouldShowFiatNoQuotesAlert ||
-    shouldShowPostQuoteNoQuotesAlert ||
-    shouldShowQuoteRequiredNoQuotesAlert;
+    shouldShowPostQuoteNoQuotesAlert;
 
   return useMemo(() => {
     if (!showAlert) {
@@ -102,11 +94,13 @@ export function useNoPayTokenQuotesAlert() {
       {
         key: AlertKeys.NoPayTokenQuotes,
         field: RowAlertKey.PayWith,
-        message: strings('alert_system.no_pay_token_quotes.message'),
+        message:
+          quoteValidationError ??
+          strings('alert_system.no_pay_token_quotes.message'),
         title: strings('alert_system.no_pay_token_quotes.title'),
         severity: Severity.Danger,
         isBlocking: true,
       },
     ];
-  }, [showAlert]);
+  }, [showAlert, quoteValidationError]);
 }
