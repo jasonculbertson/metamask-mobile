@@ -4,17 +4,10 @@
 import React, {
   forwardRef,
   useImperativeHandle,
-  useMemo,
   useRef,
   useState,
 } from 'react';
-import {
-  Dimensions,
-  LayoutChangeEvent,
-  StyleProp,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Dimensions, LayoutChangeEvent, View } from 'react-native';
 import Animated, {
   cancelAnimation,
   runOnJS,
@@ -72,10 +65,6 @@ const Toast = forwardRef((_, ref: React.ForwardedRef<ToastRef>) => {
       { translateY: translateYProgress.value - TAB_BAR_HEIGHT - customOffset },
     ],
   }));
-  const baseStyle: StyleProp<ViewStyle> = useMemo(
-    () => [styles.base, animatedStyle],
-    [styles.base, animatedStyle],
-  );
 
   const resetState = () => setToastOptions(undefined);
 
@@ -291,7 +280,10 @@ const Toast = forwardRef((_, ref: React.ForwardedRef<ToastRef>) => {
   }
 
   return (
-    <Animated.View onLayout={onAnimatedViewLayout} style={baseStyle}>
+    <Animated.View
+      onLayout={onAnimatedViewLayout}
+      style={[styles.base, animatedStyle]}
+    >
       {renderToastContent(toastOptions)}
     </Animated.View>
   );
