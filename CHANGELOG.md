@@ -9,8 +9,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [8.2.0]
 
+### Uncategorized
+
+- chore: sync stable into release/8.2.0 (#32785)
+- chore: sync stable into release/8.2.0 (#32743)
+- revert: VS Code color settings (#32731)
+- chore: migrate MOBILE_BUNDLESIZE_TOKEN to OIDC token exchange (#32333)
+- chore: migrate RELEASE_LABEL_TOKEN to OIDC token exchange (#32334)
+- Bump bridge status controller to v74.0.2 (#32711)
+- chore: backport EAS update workflow and metro transform from v8.0.1 (#32638)
+- chore: Update RBTC Icon (#30786)
+- chore: migrate STABLE_SYNC_TOKEN to OIDC token exchange (#32331)
+- chore: migrate METAMASKBOT_CROWDIN_TOKEN to OIDC token exchange (#32335)
+- Removed assets deprecated code (#30803)
+- chore: migrate ACTIONS_WRITE_TOKEN to OIDC token exchange (#32329)
+- chore: migrate METAMASK_MOBILE_BRANCH_SYNC_TOKEN to OIDC token exchange (#32328)
+- perf(ci): compress node_modules tarball with zstd to speed up build download (#32428)
+- chore(ci): skip Android AAB for non-production builds (PR-C) (#32411)
+
 ### Added
 
+- feat(activity): earn/staking + smart-account-upgrade details (#32492)
 - Added `Banner Dismissed` event (#32602)
 - Improved Social Trading position charts to frame the trader's trades, with tap-to-focus on individual trades (#32590)
 - Added Price Alerts notification preferences to Settings > Notifications (#32698)
@@ -104,6 +123,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- fix: keep OIDC token within merge job to avoid cross-job secret redaction (#32533)
 - Fix alignment of view all button in explore (#32724)
 - Fixed approval or interaction transactions could show undefined undefined in the Activity list (#31556)
 - Fixed the send flow not respecting the "Show conversion on test networks" setting — testnet assets (e.g. SepoliaETH) no longer (#32687)
@@ -227,10 +247,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed confirmations to show "Paid by MetaMask" and a $0 fee for all sponsored Money Account transactions, including pre-quote and withdrawals (#32172)
 - Fixed an intermittent error when tapping Withdraw on Perps that could prevent the withdrawal flow from starting (#32001)
 - Fixed VIP dashboard last-updated timestamp alignment and rewards settings section divider spacing (#32271)
-- Fixed Rewards navigation errors when opening campaign outcome details, exiting VIP flows, and transitioning to the dashboard (#32265) after opt-in
+- Fixed Rewards navigation errors when opening campaign outcome details, exiting VIP flows, and transitioning to the dashboardafter opt-in (#32265)
 - Fixed onboarding interest questionnaire grid layout for languages with longer option labels (#32243)
 - Fixed contract interactions in the redesigned Activity list not showing the token amount (#32194)
-- Fixed the Add funds sheet to show "Debit card" instead of "Debit card or Apple Pay" on Android, where Apple Pay is not (#32208) available
+- Fixed the Add funds sheet to show "Debit card" instead of "Debit card or Apple Pay" on Android, where Apple Pay is notavailable (#32208)
 - Fixed an issue where MetaMask would not fail over to another RPC URL when Infura is down (#31983)
 - Fixed Android soft keyboard obscuring text inputs in Rewards onboarding, claim rewards, and settings flows (#32186)
 - Fixed a crash when turning off Basic Functionality from Security & Privacy settings (#32189)
