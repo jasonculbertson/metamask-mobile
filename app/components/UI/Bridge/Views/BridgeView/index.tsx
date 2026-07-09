@@ -482,9 +482,7 @@ const BridgeViewContent = ({ latestSourceBalance }: BridgeViewContentProps) => {
   return (
     <SafeAreaView
       style={styles.screenWrapper}
-      edges={
-        Platform.OS === 'ios' ? ['left', 'right'] : ['bottom', 'left', 'right']
-      }
+      edges={['bottom', 'left', 'right']}
     >
       <HeaderStandard
         title={headerTitle}
