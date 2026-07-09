@@ -533,6 +533,23 @@ export type RootStackParamList = {
   RewardsReferralBottomSheetModal: undefined;
   OTAUpdatesModal: undefined;
   EndOfSeasonClaimBottomSheet: undefined;
+  FirstPredictOnUsSplash:
+    | {
+        content: unknown;
+        markets: unknown;
+      }
+    | undefined;
+  FirstPredictOnUsOrderSheet:
+    | {
+        confirmLabel: string;
+        selectedOrder: {
+          market: unknown;
+          outcome: unknown;
+          outcomeToken: unknown;
+        };
+        usdAmount: number;
+      }
+    | undefined;
 
   // Onboarding routes
   OnboardingRootNav: undefined;
