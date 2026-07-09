@@ -21,8 +21,10 @@ export const createSwapsKeypadStyles = (theme: Theme) =>
       marginBottom: -1,
       ...(isSwapsKeypadPureBlackSurface(theme)
         ? {
-            backgroundColor: getElevatedSurfaceColor(theme),
-            borderColor: theme.colors.border.muted,
+            // In pure black dark mode, match the screen background so the
+            // keypad surface aligns with the Swaps view (TMCU-1006).
+            backgroundColor: theme.colors.background.default,
+            borderColor: theme.colors.background.default,
           }
         : {
             borderBottomColor: theme.colors.background.default,

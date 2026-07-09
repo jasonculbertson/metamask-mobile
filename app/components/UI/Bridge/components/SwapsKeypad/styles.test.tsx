@@ -49,15 +49,15 @@ describe('createSwapsKeypadStyles', () => {
     );
   });
 
-  it('uses elevated surface colors for keypad dialog in pure black dark mode', () => {
+  it('uses pure black surface for keypad dialog in pure black dark mode', () => {
     mockIsPureBlackEnabled = true;
     const theme = createTheme(AppThemeKey.dark);
     const styles = createSwapsKeypadStyles(theme);
 
     expect(styles.keypadDialog.backgroundColor).toBe(
-      theme.colors.background.alternative,
+      theme.colors.background.default,
     );
-    expect(styles.keypadDialog.borderColor).toBe(theme.colors.border.muted);
+    expect(styles.keypadDialog.borderColor).toBe(theme.colors.background.default);
     expect(styles.keypadDialog.borderBottomColor).toBeUndefined();
   });
 
