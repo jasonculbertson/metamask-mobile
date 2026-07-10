@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTailwind } from '@metamask/design-system-twrnc-preset';
@@ -38,24 +38,15 @@ const SearchingForDevice = ({
   const tw = useTailwind();
   const riveRef = useRef<RiveRef>(null);
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (riveRef.current) {
-        try {
-          Logger.log('Triggering Ledger searching animation');
-          riveRef.current.fireState('Ledger_states', 'reset');
-          Logger.log('Successfully fired reset trigger');
-        } catch (error) {
-          Logger.error(
-            error as Error,
-            'Error triggering Ledger searching Rive animation',
-          );
-        }
-      } else {
-        Logger.log('Rive ref not available for searching animation');
-      }
-    }, 500);
-    return () => clearTimeout(timeoutId);
+  const handleRivePlay = useCallback(() => {
+    try {
+      riveRef.current?.fireState('Ledger_states', 'reset');
+    } catch (error) {
+      Logger.error(
+        error as Error,
+        'Error triggering Ledger searching Rive animation',
+      );
+    }
   }, []);
 
   return (
@@ -80,11 +71,7 @@ const SearchingForDevice = ({
               artboardName="Ledger"
               stateMachineName="Ledger_states"
               testID="ledger-searching-animation"
-              onPlay={() =>
-                Logger.log('Ledger searching animation started playing')
-              }
-              onPause={() => Logger.log('Ledger searching animation paused')}
-              onStop={() => Logger.log('Ledger searching animation stopped')}
+              onPlay={handleRivePlay}
             />
           </View>
           <Box
