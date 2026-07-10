@@ -255,7 +255,6 @@ export function useTransactionCustomAmount({
         percentage === 100 &&
         !isPerpsWithdraw &&
         !isMoneyAccountWithdraw &&
-        (!isMoneyAccountDeposit || isAddMusdFlow) &&
         !isPredictWithdraw;
 
       if (shouldSetMax) {
@@ -272,8 +271,6 @@ export function useTransactionCustomAmount({
       isPerpsWithdraw,
       isPredictWithdraw,
       isMoneyAccountWithdraw,
-      isMoneyAccountDeposit,
-      isAddMusdFlow,
       setIsMax,
       setConfirmationMetric,
     ],
