@@ -92,6 +92,9 @@ export function useTransactionCustomAmount({
   const isMoneyAccountWithdraw = hasTransactionType(transactionMeta, [
     TransactionType.moneyAccountWithdraw,
   ]);
+  const isPredictWithdraw = hasTransactionType(transactionMeta, [
+    TransactionType.predictWithdraw,
+  ]);
   const tokenAddress = getTokenAddress(transactionMeta);
   const payTokenFiatRate =
     useTokenFiatRate(tokenAddress, chainId, currency) ?? 1;
@@ -241,21 +244,19 @@ export function useTransactionCustomAmount({
         },
       });
 
-      // Do NOT set isMaxAmount=true for perps or money-account withdraw. TPC's
-      // calculatePostQuoteSourceAmounts substitutes `token.balanceRaw` when
-      // isMaxAmount is true: wrong for HyperLiquid (wallet USDC vs typed HL
-      // balance) and wrong for money account (on-chain mUSD only vs mUSD +
-      // vmUSD fiat total). Keeping isMaxAmount false routes the typed
-      // amount through as token.amountRaw.
-      // addMusd is the exception: its pay token is the wallet's mUSD, so
-      // token.balanceRaw is exactly what we want to move. Setting max deposits
-      // the full balance (no cent-floored dust left behind) and displays the
-      // quote's targetAmount, keeping the amount in step with the pay-with row.
+      // Do NOT set isMaxAmount=true for perps, predict, or money-account
+      // withdraw. TPC's calculatePostQuoteSourceAmounts substitutes
+      // `token.balanceRaw` when isMaxAmount is true: wrong for HyperLiquid
+      // (wallet USDC vs typed HL balance), wrong for money account (on-chain
+      // mUSD only vs mUSD + vmUSD fiat total), and wrong for predict (pUSD is
+      // held in the Safe proxy, so the EOA balanceRaw is 0). Keeping
+      // isMaxAmount false routes the typed amount through as token.amountRaw.
       const shouldSetMax =
         percentage === 100 &&
         !isPerpsWithdraw &&
         !isMoneyAccountWithdraw &&
-        (!isMoneyAccountDeposit || isAddMusdFlow);
+        (!isMoneyAccountDeposit || isAddMusdFlow) &&
+        !isPredictWithdraw;
 
       if (shouldSetMax) {
         setIsMax(true);
@@ -269,6 +270,7 @@ export function useTransactionCustomAmount({
       balanceUsd,
       isMaxAmount,
       isPerpsWithdraw,
+      isPredictWithdraw,
       isMoneyAccountWithdraw,
       isMoneyAccountDeposit,
       isAddMusdFlow,
