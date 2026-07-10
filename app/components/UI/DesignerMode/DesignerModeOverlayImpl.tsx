@@ -1,66 +1,145 @@
-import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, type ViewStyle } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  AppState,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  type TextStyle,
+  type ViewStyle,
+} from 'react-native';
 import { DesignerModeRN } from './DesignerModeRN';
 import { getDefaultRelayUrl } from './relayUrl';
+import { useSessionReplay } from './useSessionReplay';
 
-// Fixed dev-tooling chrome; expressed as rgb() (not hex) and centralized so the
-// stylesheet never embeds color literals. MetaMask brand blue.
-const FAB_BG = 'rgb(3, 125, 214)';
-const FAB_SHADOW = 'rgb(0, 0, 0)';
+// Codex-style annotate chrome — blue active state, sits clear of Expo Tools.
+const TOGGLE_BG = 'rgb(255, 255, 255)';
+const TOGGLE_BG_ACTIVE = 'rgb(37, 99, 235)';
+const TOGGLE_BORDER = 'rgb(229, 231, 235)';
+const TOGGLE_TEXT = 'rgb(17, 24, 39)';
+const TOGGLE_TEXT_ACTIVE = 'rgb(255, 255, 255)';
+const TOGGLE_SHADOW = 'rgb(0, 0, 0)';
+
+/** How often to check Designer Setup for system-level overlay on/off. */
+const OVERLAY_POLL_MS = 2000;
 
 const styles = StyleSheet.create({
-  // Sits above the bottom tab bar, out of the way of most app chrome.
-  fab: {
+  toggle: {
     position: 'absolute',
-    bottom: 100,
-    right: 16,
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: FAB_BG,
-    justifyContent: 'center',
+    top: 88,
+    right: 72,
+    zIndex: 10000,
+    flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: FAB_SHADOW,
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 18,
+    backgroundColor: TOGGLE_BG,
+    borderWidth: 1,
+    borderColor: TOGGLE_BORDER,
+    shadowColor: TOGGLE_SHADOW,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 4,
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
     elevation: 8,
-    zIndex: 9999,
   } as ViewStyle,
-  fabText: {
-    fontSize: 24,
-  },
+  toggleActive: {
+    backgroundColor: TOGGLE_BG_ACTIVE,
+    borderColor: TOGGLE_BG_ACTIVE,
+  } as ViewStyle,
+  toggleIcon: {
+    fontSize: 13,
+    color: TOGGLE_TEXT,
+    fontWeight: '700',
+  } as TextStyle,
+  toggleIconActive: {
+    color: TOGGLE_TEXT_ACTIVE,
+  } as TextStyle,
+  toggleLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: TOGGLE_TEXT,
+  } as TextStyle,
+  toggleLabelActive: {
+    color: TOGGLE_TEXT_ACTIVE,
+  } as TextStyle,
 });
 
 /**
- * The actual Designer Mode overlay: a floating toggle (FAB) plus the inspector
- * panel. This module is only ever `require`d when `DESIGNER_MODE=true` (see
- * `DesignerModeOverlay.tsx`), so importing the inspector here — and the
- * `StyleSheet.create` patch it pulls in via `fiber.ts` — never runs in normal
- * builds.
+ * Designer Mode overlay: Codex-style Annotate / Annotating toggle plus
+ * tap-to-pin comment UI. Only `require`d when `DESIGNER_MODE=true`.
+ *
+ * System on/off is controlled from MetaMask Designer Setup via the relay
+ * (`overlayEnabled`). When off, this component renders nothing so the
+ * simulator stays clean.
  */
 const DesignerModeOverlayImpl: React.FC = () => {
   const [active, setActive] = useState(false);
   const [relayUrl] = useState(getDefaultRelayUrl);
+  // Default on so annotate still works if the relay is an older build
+  // without overlayEnabled, or briefly offline.
+  const [systemEnabled, setSystemEnabled] = useState(true);
+
+  const refreshOverlayPreference = useCallback(async () => {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 1200);
+      const res = await fetch(`${relayUrl}/api/health`, {
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (!res.ok) return;
+      const data = (await res.json()) as { overlayEnabled?: boolean };
+      // Older relays omit the field — treat as enabled.
+      const enabled = data.overlayEnabled !== false;
+      setSystemEnabled(enabled);
+      if (!enabled) setActive(false);
+    } catch {
+      // Keep last known preference while relay is unreachable.
+    }
+  }, [relayUrl]);
+
+  useEffect(() => {
+    refreshOverlayPreference();
+    const id = setInterval(refreshOverlayPreference, OVERLAY_POLL_MS);
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') refreshOverlayPreference();
+    });
+    return () => {
+      clearInterval(id);
+      sub.remove();
+    };
+  }, [refreshOverlayPreference]);
+
+  useSessionReplay(relayUrl, systemEnabled);
+
+  if (!systemEnabled) {
+    return null;
+  }
 
   return (
-    <>
-      {!active && (
-        <Pressable
-          onPress={() => setActive(true)}
-          style={styles.fab}
-          accessibilityRole="button"
-          accessibilityLabel="Open Designer Mode"
-        >
-          <Text style={styles.fabText}>🎨</Text>
-        </Pressable>
-      )}
+    <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
       <DesignerModeRN
         active={active}
         onClose={() => setActive(false)}
         relayUrl={relayUrl}
       />
-    </>
+      <Pressable
+        onPress={() => setActive((current) => !current)}
+        style={[styles.toggle, active && styles.toggleActive]}
+        accessibilityRole="button"
+        accessibilityState={{ selected: active }}
+        accessibilityLabel={active ? 'Turn off annotate' : 'Turn on annotate'}
+      >
+        <Text style={[styles.toggleIcon, active && styles.toggleIconActive]}>
+          ✎
+        </Text>
+        <Text style={[styles.toggleLabel, active && styles.toggleLabelActive]}>
+          {active ? 'Annotating' : 'Annotate'}
+        </Text>
+      </Pressable>
+    </View>
   );
 };
 

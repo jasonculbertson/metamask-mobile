@@ -14,6 +14,7 @@ To learn how to contribute to the MetaMask codebase, visit our [Contributor Docs
 
 ## Documentation
 
+- [MetaMask UAT (iOS Simulator testing app)](https://jasonculbertson.github.io/metamask-uat/) — launch PR builds, annotate UI issues, export notes for the team ([team guide](https://jasonculbertson.github.io/metamask-uat/team-guide.html))
 - [Architecture](./docs/readme/architecture.md)
 - [BigInt number migration](./docs/bigint-migration-guide.md) (deprecated `app/util/number/index.js` burndown and ESLint allowlist)
 - [Expo Development Environment Setup](./docs/readme/expo-environment.md)
