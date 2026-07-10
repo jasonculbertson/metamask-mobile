@@ -2084,7 +2084,8 @@
       "products": "Mga Produkto",
       "top_movers": "Mga nangungunang mover",
       "gainers": "Mga Gainer",
-      "losers": "Mga Loser"
+      "losers": "Mga Loser",
+      "recently_added": "Recently added"
     },
     "learn_more": {
       "title": "Alamin ang tungkol sa Perps",
@@ -2178,8 +2179,15 @@
       "filter_badge_label": "Watchlist",
       "suggested": "Iminungkahi"
     },
+    "market_count": "{{count}} market",
+    "market_count_plural": "{{count}} markets",
     "no_tokens_found": "Walang nakitang token",
     "no_tokens_found_description": "Wala kaming nakitang anumang token na may pangalang \"{{searchQuery}}\". Subukang maghanap ng iba.",
+    "no_markets_found": "No markets found",
+    "no_markets_found_description": "No markets match your current filter. Try a different category.",
+    "no_markets_search_description": "No markets match \"{{searchQuery}}\" in this category. Try a different search or clear the filter.",
+    "clear_search": "Clear search",
+    "clear_filter": "Clear filter",
     "testnet": "Testnet",
     "mainnet": "Mainnet",
     "developer_options": {
@@ -2494,6 +2502,7 @@
     },
     "outcome_groups": {
       "game_lines": "Mga Linya ng Laro",
+      "halves": "Halves",
       "first_half": "1st Half",
       "first_set": "Unang Set",
       "team_totals": "Mga Kabuuan ng Team",
@@ -2522,6 +2531,7 @@
       "first_half_moneyline": "1H Moneyline",
       "first_half_spreads": "1H Mga Spread",
       "first_half_totals": "1H Mga Kabuuan",
+      "second_half_totals": "2H Totals",
       "points": "Mga Point",
       "assists": "Mga Assist",
       "rebounds": "Mga Rebound",
@@ -2529,6 +2539,7 @@
       "basketball_odd_even": "Odd/Even na Score",
       "basketball_team_to_score_first": "Team Muna bago Score",
       "goalscorers": "Mga Goalscorer",
+      "soccer_player_goals": "Goals",
       "exact_score": "Eksaktong Score",
       "halftime_result": "Resulta sa Halftime",
       "corners": "Mga Corner",
@@ -2540,6 +2551,11 @@
       "soccer_anytime_goalscorer": "Mga Goalscorer",
       "soccer_exact_score": "Eksaktong Score",
       "soccer_halftime_result": "Resulta sa Halftime",
+      "soccer_first_half_team_totals": "1st Half Team Totals",
+      "both_teams_to_score_first_half": "1st Half Both Teams to Score",
+      "soccer_second_half_result": "2nd Half Result",
+      "soccer_second_half_team_totals": "2nd Half Team Totals",
+      "both_teams_to_score_second_half": "2nd Half Both Teams to Score",
       "soccer_team_to_advance": "Team na Aabante",
       "soccer_first_to_score": "Unang Team na Naka-score",
       "soccer_extra_time": "Ekstrang Oras?",
@@ -4856,21 +4872,21 @@
     "activity_perps_withdrawal": "Pag-withdraw ng perps",
     "activity_perps_open_long": "Nagbukas ng long",
     "activity_perps_close_long": "Nagsara ng long",
-    "activity_perps_close_long_liquidated": "Nagsara ng long—na-liquidate",
-    "activity_perps_close_long_stop_loss": "Nagsara ng long—stop loss",
+    "activity_perps_close_long_liquidated": "Closed long — liquidated",
+    "activity_perps_close_long_stop_loss": "Closed long — stop loss",
     "activity_perps_open_short": "Nagbukas ng short",
     "activity_perps_close_short": "Nagsara ng short",
-    "activity_perps_close_short_liquidated": "Nagsara ng short—na-liquidate",
-    "activity_perps_close_short_stop_loss": "Nagsara ng short—stop loss",
+    "activity_perps_close_short_liquidated": "Closed short — liquidated",
+    "activity_perps_close_short_stop_loss": "Closed short — stop loss",
     "activity_perps_paid_funding_fees": "Nagbayad ng bayarin sa pagpopondo",
     "activity_perps_received_funding_fees": "Nakatanggap ng bayarin sa pagpopondo",
-    "activity_perps_close_short_take_profit": "Nagsara ng short—take profit",
-    "activity_perps_close_long_take_profit": "Nagsara ng long—take profit",
+    "activity_perps_close_short_take_profit": "Closed short — take profit",
+    "activity_perps_close_long_take_profit": "Closed long — take profit",
     "activity_market_short": "Market short",
-    "activity_stop_market_close_short": "Stop market—isara ang short",
-    "activity_market_close_short": "Market—isara ang short",
+    "activity_stop_market_close_short": "Stop market — close short",
+    "activity_market_close_short": "Market — close short",
     "activity_limit_short": "Limitahan ang short",
-    "activity_limit_close_short": "Limitahan—isara ang short",
+    "activity_limit_close_short": "Limit — close short",
     "claim": "I-claim",
     "sent_ether": "Naipadala ang ETH",
     "self_sent_ether": "Nagpadala ka sa sarili mo ng ETH",
@@ -5308,7 +5324,7 @@
     "what_is_seedphrase_text_2": "Dapat mong panatilihing lihim at ligtas ang iyong Lihim na Parirala sa Pagbawi. Kung may makakakuha ng iyong Lihim na Parirala sa Pagbawi, makokontrol nila ang iyong mga account.",
     "what_is_seedphrase_text_3": "I-save ito sa isang lugar na ikaw lang ang makaka-access. Kung maiwawala mo ito, hindi ka matutulungan ng MetaMask na ma-recover ito.",
     "what_is_seedphrase_text_4": "Sinuman na mayroon ng iyong Lihim na Parirala sa Pagbawi ay maaaring:",
-    "seedPhrase_point_1": "Kunin ang lahat ng iyong pera",
+    "seedPhrase_point_1": "Kunin ang lahat ng pera mo",
     "seedPhrase_point_2": "Kumpirmahin ang mga transaksyon",
     "seedPhrase_point_3": "Baguhin ang iyong impormasyon sa pag-log in",
     "what_is_seedphrase_confirm": "Nakuha ko"
@@ -6660,7 +6676,12 @@
   },
   "download_files": {
     "error": "Nabigong i-download ang attachment.",
-    "unknownError": "Nagkaroon ng hindi kilalang error"
+    "unknownError": "Nagkaroon ng hindi kilalang error",
+    "downloaded_title": "Download complete",
+    "downloaded_message": "{{filename}} was saved to your Downloads folder.",
+    "confirm_message": "Do you want to download \n{{filename}}?",
+    "confirm_action": "Download",
+    "cancel_action": "Cancel"
   },
   "remember_me": {
     "enable_remember_me": "I-on ang Tandaan ako",
@@ -7164,7 +7185,7 @@
       "step_1": {
         "title": "Kumita ng hanggang {{apy}}% APY",
         "title_no_apy": "Pondohan ang Money account mo",
-        "description": "Pondohan ang iyong Money account at panoorin na lumaki ang balanse mo nang hanggang {{apy}}% APY (variable).",
+        "description": "Pondohan ang iyong Money account at panoorin na lumaki ang balanse mo ng hanggang {{apy}}% APY (variable).",
         "description_no_apy": "Pondohan ang iyong Money account at panoorin na lumaki ang balanse mo.",
         "cta": "Magdagdag ng pondo"
       },
@@ -7194,7 +7215,7 @@
       "step1_footer_text": "Nagbabago ang APY at hindi ito garantisado.",
       "step2_title": "Kumita nang awtomatiko",
       "step2_body": "Ilipat ang mga stablecoin nang walang mga babayaran sa palitan. Nagsisimulang kumita agad ang mga pondo.",
-      "step2_footer_text": "Gumagamit ang Money account ng imprastraktura ng Veda.",
+      "step2_footer_text": "Gumagamit ang Money account ng Veda infrastructure.",
       "step3_title": "Gastusin kahit saan",
       "step3_body_card_eligible": "Makakuha ng hanggang {{percentage}}% pabalik sa mga pagbili sa pamamagitan ng pag-link sa Money account mo papunta sa MetaMask Card.",
       "step3_body_card_ineligible": "Parating na! Makakuha ng hanggang {{percentage}}% pabalik sa mga pagbili sa pamamagitan ng pag-link sa Money account mo papunta sa MetaMask Card.",
@@ -7330,8 +7351,8 @@
       "deposit_success_title_convert": "Kumpleto na ang pag-convert",
       "deposit_success_title_add_musd": "Nagdagdag ng mga pondo",
       "deposit_success_title_card": "Nakumpleto ang deposito",
-      "deposit_success_body": "Nagdagdag ng {{amount}} sa Money account.",
-      "deposit_success_body_no_amount": "Nagdagdag sa Money account.",
+      "deposit_success_body": "Naidagdag ang {{amount}} sa Money account.",
+      "deposit_success_body_no_amount": "Naidagdag sa Money account.",
       "withdraw_in_progress_title": "Isinasagawa ang paglilipat",
       "withdraw_success_title": "Kumpleto na ang paglilipat",
       "withdraw_success_body": "Naidagdag ang {{amount}} sa {{destination}}.",
@@ -7358,7 +7379,7 @@
       "paragraph_1": "Awtomatikong kumikita ang Money account mo ng hanggang {{percentage}}%.",
       "paragraph_2": "Ang rate na ipinapakita ay tinantyang Annual Percentage Yield (APY) batay sa mga kasalukuyang kondisyon ng merkado. Nag-iiba-iba ang APY at hindi ito garantisado. Napupunta ang pondo sa isang DeFi vault, na pinapangasiwaan ng Veda at sinusubaybayan ng Steakhouse Financial ang panganib, at tumutubo ito sa mga kilalang merkado ng pagpapautang.",
       "paragraph_3": "Kapag ni-link mo ang MetaMask Card mo, ibabawas ang mga binili mo sa balanseng ito.",
-      "paragraph_4": "Pinapagana ng Monad ang Money account.",
+      "paragraph_4": "Ang Money account ay pinapagana ng Monad.",
       "deposit_body": "Ang rate na ipinapakita ay ang tinatayang Annual Percentage Yield (APY) batay sa mga kasalukuyang kondisyon ng market. Nagbabago ang APY at hindi ito garantisado."
     },
     "earnings_tooltip": {
@@ -7440,9 +7461,9 @@
     "how_it_works_page": {
       "header_title": "Pera",
       "section_title": "Paano ito gumagana",
-      "description_1": "Magdagdag ng mUSD sa Money account mo at awtomatikong kumita ng hanggang {{percentage}}% APY (variable). Napupunta ang mga pondo sa isang DeFi vault, na pinangangasiwaan ng Veda at may pagsubaybay sa panganib mula sa Steakhouse Financial. Binubuo ang rate ng mga third-party na platform ng DeFi na naglalagay ng mga pondo sa mga blockchain protocol. Walang pag-stake, walang pag-claim, walang lock-up.",
+      "description_1": "Magdagdag ng mUSD sa Money account mo at awtomatikong kumita ng hanggang {{percentage}}% APY (variable). Napupunta ang mga pondo sa isang DeFi vault, na pinangangasiwaan ng Veda at may pagsubaybay sa panganib mula sa Steakhouse Financial. Binubuo ang rate ng mga third-party na platform ng DeFi na naglalagay ng mga pondo sa mga blockchain protocol. Walang pag-stake, walang pag-claim, walang mga lock-up.",
       "description_2": "Ang balanse mo sa Money ang balanseng puwede mong gastusin. I-link ang MetaMask Card mo para magamit ito sa 150M+ merchant sa buong mundo. Patuloy na kikita ang pera mo hanggang sa gastusin mo ito.",
-      "description_3": "Pinapagana ng Monad ang Money account.",
+      "description_3": "Ang Money account ay pinapagana ng Monad.",
       "faq_title": "Mga FAQ",
       "faq_q1": "Ano ang MetaMask Money account?",
       "faq_a1": "Isang account na kumikita ng hanggang {{percentage}}% variable APY. Nagdedeposito ka ng pondo, na inilalagay sa account bilang mUSD, at kikita ng hanggang {{percentage}}% APY. Ang mUSD ay stablecoin ng MetaMask na suportado ng dolyar. Maaari mong gamitin o i-withdraw ang mga pondo mo anumang oras nang walang mga penalty. Maaari mong gastusin ang mga pondo mo gamit ang MetaMask Card sa 150+ milyong Mastercard merchant sa buong mundo.",
@@ -7477,11 +7498,11 @@
       "button": "Nakuha ko",
       "money_account_disabled": {
         "title": "Pansamantalang hindi available ang Money account",
-        "description": "Inaayos na namin ito. Babalik din maya-maya ang Money Account — bumalik na lang kaagad.\n."
+        "description": "Inaayos na namin ito. Babalik din maya-maya ang Money Account — bumalik na lang kaagad."
       },
       "excluded_from_gradual_rollout": {
         "title": "Parating na ang Money Account",
-        "description": "Dahan-dahan naming inilulunsad ang Money Account para matiyak na gumagana nang maayos ang lahat. Bumalik ka na lang agad."
+        "description": "Dahan-dahan naming inilulunsad ang Money Account para matiyak na gumagana nang maayos ang lahat. Bumalik ka na lang uli."
       }
     }
   },
@@ -8962,7 +8983,7 @@
       },
       "money_account_required": {
         "title": "I-set up ang Money Account",
-        "description": "Kailangan mo ng naka-link na Money account bago i-redeem ang iyong credit.",
+        "description": "Kailangan mo ng naka-link na Money account bago mag-redeem ng iyong credit.",
         "confirm_button_label": "I-set up ang Money Account"
       },
       "refund_info": {
@@ -9796,7 +9817,7 @@
       "predict_deposit": "Pinondohang Hinulaang account",
       "predict_withdraw": "Pag-withdraw",
       "money_account_deposit": "Ideposito sa Money Account",
-      "money_account_withdraw": "Maglipat mula sa Money Account",
+      "money_account_withdraw": "Ilipat mula sa Money Account",
       "default": "Mga detalye ng transaksyon"
     },
     "label": {

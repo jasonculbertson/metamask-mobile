@@ -2084,7 +2084,8 @@
       "products": "商品",
       "top_movers": "注目銘柄",
       "gainers": "上昇銘柄",
-      "losers": "下落銘柄"
+      "losers": "下落銘柄",
+      "recently_added": "Recently added"
     },
     "learn_more": {
       "title": "パーペチュアルの詳細",
@@ -2178,8 +2179,15 @@
       "filter_badge_label": "ウォッチリスト",
       "suggested": "おすすめ"
     },
+    "market_count": "{{count}} market",
+    "market_count_plural": "{{count}} markets",
     "no_tokens_found": "トークンが見つかりませんでした",
     "no_tokens_found_description": "「{{searchQuery}}」という名前のトークンが見つかりませんでした。別の検索をお試しください。",
+    "no_markets_found": "No markets found",
+    "no_markets_found_description": "No markets match your current filter. Try a different category.",
+    "no_markets_search_description": "No markets match \"{{searchQuery}}\" in this category. Try a different search or clear the filter.",
+    "clear_search": "Clear search",
+    "clear_filter": "Clear filter",
     "testnet": "テストネット",
     "mainnet": "メインネット",
     "developer_options": {
@@ -2494,6 +2502,7 @@
     },
     "outcome_groups": {
       "game_lines": "ゲームライン",
+      "halves": "Halves",
       "first_half": "前半",
       "first_set": "第1セット",
       "team_totals": "チーム合計",
@@ -2522,6 +2531,7 @@
       "first_half_moneyline": "前半のマネーライン",
       "first_half_spreads": "前半のスプレッド",
       "first_half_totals": "前半の合計",
+      "second_half_totals": "2H Totals",
       "points": "ポイント",
       "assists": "アシスト",
       "rebounds": "リバウンド",
@@ -2529,6 +2539,7 @@
       "basketball_odd_even": "奇数・偶数の得点",
       "basketball_team_to_score_first": "先制点を取るチーム",
       "goalscorers": "ゴールスコアラー",
+      "soccer_player_goals": "Goals",
       "exact_score": "正確なスコア",
       "halftime_result": "ハーフタイムの結果",
       "corners": "コーナー",
@@ -2540,6 +2551,11 @@
       "soccer_anytime_goalscorer": "ゴールスコアラー",
       "soccer_exact_score": "正確なスコア",
       "soccer_halftime_result": "ハーフタイムの結果",
+      "soccer_first_half_team_totals": "1st Half Team Totals",
+      "both_teams_to_score_first_half": "1st Half Both Teams to Score",
+      "soccer_second_half_result": "2nd Half Result",
+      "soccer_second_half_team_totals": "2nd Half Team Totals",
+      "both_teams_to_score_second_half": "2nd Half Both Teams to Score",
       "soccer_team_to_advance": "勝ち進むチーム",
       "soccer_first_to_score": "最初に得点するチーム",
       "soccer_extra_time": "延長戦ですか？",
@@ -3993,8 +4009,8 @@
         "title": "カード",
         "reset_onboarding_description": "オンボーディングフローをやり直すには、カードのオンボーディングステータスをリセットしてください。",
         "reset_onboarding_button": "オンボーディングステータスのリセット",
-        "unlink_money_account_description": "カードがマネーカウントから支出できるUSDCの利用限度額を取り消します。これにより、approve(0)のトランザクションが送信され、カードのバックエンド側でマネーアカウントが委任解除済み (not-delegated) に変更されます。",
-        "unlink_money_account_button": "マネーアカウントとカードのリンクを解除",
+        "unlink_money_account_description": "CardがMoney Accountから支出できるUSDCの利用限度額を取り消します。これにより、approve(0)のトランザクションが送信され、カードのバックエンド側でMoney Accountが委任解除済み (not-delegated) に変更されます。",
+        "unlink_money_account_button": "Money AccountとCardのリンクを解除",
         "unlink_money_account_disabled_hint": "削除対象となる有効なリンクがありません。"
       },
       "identity": {
@@ -4856,21 +4872,21 @@
     "activity_perps_withdrawal": "パーペチュアルアカウントからの出金",
     "activity_perps_open_long": "ロングをオープンしました",
     "activity_perps_close_long": "ロングをクローズしました",
-    "activity_perps_close_long_liquidated": "ロングをクローズしました—清算",
-    "activity_perps_close_long_stop_loss": "ロングをクローズしました—ストップロス",
+    "activity_perps_close_long_liquidated": "Closed long — liquidated",
+    "activity_perps_close_long_stop_loss": "Closed long — stop loss",
     "activity_perps_open_short": "ショートをオープンしました",
     "activity_perps_close_short": "ショートをクローズしました",
-    "activity_perps_close_short_liquidated": "ショートをクローズしました—清算",
-    "activity_perps_close_short_stop_loss": "ショートをクローズしました—ストップロス",
+    "activity_perps_close_short_liquidated": "Closed short — liquidated",
+    "activity_perps_close_short_stop_loss": "Closed short — stop loss",
     "activity_perps_paid_funding_fees": "支払われた資金調達手数料",
     "activity_perps_received_funding_fees": "受け取った資金調達手数料",
-    "activity_perps_close_short_take_profit": "ショートをクローズしました—利益確定",
-    "activity_perps_close_long_take_profit": "ロングをクローズしました—利益確定",
+    "activity_perps_close_short_take_profit": "Closed short — take profit",
+    "activity_perps_close_long_take_profit": "Closed long — take profit",
     "activity_market_short": "成行ショート",
-    "activity_stop_market_close_short": "ストップ成行—ショートをクローズ",
-    "activity_market_close_short": "成行—ショートをクローズ",
+    "activity_stop_market_close_short": "Stop market — close short",
+    "activity_market_close_short": "Market — close short",
     "activity_limit_short": "リミットショート",
-    "activity_limit_close_short": "リミット—ショートをクローズ",
+    "activity_limit_close_short": "Limit — close short",
     "claim": "請求",
     "sent_ether": "ETHを送金しました",
     "self_sent_ether": "ETHを自分に送金しました",
@@ -4903,8 +4919,8 @@
     "tx_details_free": "無料",
     "tx_details_not_available": "利用できません",
     "smart_contract_interaction": "スマートコントラクトのインタラクション",
-    "money_account_deposit": "マネーアカウントに入金",
-    "money_account_withdraw": "マネーアカウントから送金",
+    "money_account_deposit": "Money Accountに入金",
+    "money_account_withdraw": "Money Accountから送金",
     "swaps_transaction": "スワップトランザクション",
     "bridge_transaction": "ブリッジ",
     "approve": "承認",
@@ -6660,7 +6676,12 @@
   },
   "download_files": {
     "error": "添付ファイルのダウンロードに失敗しました。",
-    "unknownError": "不明なエラーが発生しました"
+    "unknownError": "不明なエラーが発生しました",
+    "downloaded_title": "Download complete",
+    "downloaded_message": "{{filename}} was saved to your Downloads folder.",
+    "confirm_message": "Do you want to download \n{{filename}}?",
+    "confirm_action": "Download",
+    "cancel_action": "Cancel"
   },
   "remember_me": {
     "enable_remember_me": "認証情報の保存を有効にする",
@@ -7159,7 +7180,7 @@
     "balance_unavailable_value": "$—",
     "balance_unavailable_banner_description": "現在、一時的に残高を表示できません。資金は安全に保管されています。しばらくしてからもう一度お試しください。",
     "balance_retry": "再試行",
-    "balance_no_account": "マネーアカウントが見つかりません",
+    "balance_no_account": "Money Accountが見つかりません",
     "onboarding": {
       "step_1": {
         "title": "最大{{apy}}%APYを獲得",
@@ -7185,19 +7206,19 @@
     },
     "first_time_deposit": {
       "title": "初回入金完了",
-      "content": "マネーアカウントに入金されました —\n すでに報酬の獲得が始まっています。",
+      "content": "Money Accountに入金されました —\n すでに報酬の獲得が始まっています。",
       "button_text": "完了"
     },
     "rive_onboarding": {
-      "step1_title": "マネーアカウントが新登場",
+      "step1_title": "Money Accountが新登場",
       "step1_body": "残高に対して最大{{percentage}}%のAPYが得られ、ウォレット内で自由に利用できます。",
       "step1_footer_text": "APYは変動制で、保証されたものではありません。",
       "step2_title": "自動で報酬がもらえる",
       "step2_body": "取引所手数料なしでステーブルコインを移動できます。報酬の獲得はすぐに開始されます。",
-      "step2_footer_text": "マネーアカウントはVedaインフラストラクチャを使用しています。",
+      "step2_footer_text": "Money AccountはVedaインフラストラクチャを使用しています。",
       "step3_title": "どこでも使える",
-      "step3_body_card_eligible": "マネーアカウントをMetaMask Cardとリンクさせることで、購入額の最大{{percentage}}%が還元されます。",
-      "step3_body_card_ineligible": "まもなく開始！マネーアカウントをMetaMask Cardとリンクさせることで、購入額の最大{{percentage}}%が還元されます。",
+      "step3_body_card_eligible": "Money AccountをMetaMask Cardとリンクさせることで、購入額の最大{{percentage}}%が還元されます。",
+      "step3_body_card_ineligible": "まもなく開始！マネーMoney AccountをMetaMask Cardとリンクさせることで、購入額の最大{{percentage}}%が還元されます。",
       "step3_footer_text": "Steakhouse Financialによる監視が含まれます。",
       "step4_title": "取引も報酬の獲得も1か所で",
       "step4_body": "MetaMaskでの取引にマネー残高を利用しながら、引き続き利回りが得られます。",
@@ -7330,8 +7351,8 @@
       "deposit_success_title_convert": "換金完了",
       "deposit_success_title_add_musd": "入金されました",
       "deposit_success_title_card": "デポジット完了",
-      "deposit_success_body": "{{amount}}がマネーアカウントに追加されました。",
-      "deposit_success_body_no_amount": "マネーアカウントに追加されました。",
+      "deposit_success_body": "{{amount}}がMoney Accountに追加されました。",
+      "deposit_success_body_no_amount": "Money Accountに追加されました。",
       "withdraw_in_progress_title": "送金中",
       "withdraw_success_title": "送金完了",
       "withdraw_success_body": "{{amount}}が{{destination}}に追加されました。",
@@ -7355,10 +7376,10 @@
     },
     "apy_tooltip": {
       "title": "年換算利率 (APY)",
-      "paragraph_1": "マネーアカウントで最大{{percentage}}%の収益を自動で獲得できます。",
+      "paragraph_1": "Money Accountで最大{{percentage}}%の収益を自動で獲得できます。",
       "paragraph_2": "表示されている利率は、現在の市況に基づく予想年換算利率 (APY) です。APYは変動制で、保証されるものではありません。資金は、Vedaが管理し、Steakhouse Financialがリスク監督を行うDeFiボールトに預け入れられ、確立された融資市場を通じて収益を生み出します。",
       "paragraph_3": "MetaMaskカードをリンクさせると、購入金額がこの残高から引き落とされます。",
-      "paragraph_4": "マネーアカウントはMonadにより運用されています。",
+      "paragraph_4": "Money AccountはMonadにより運用されています。",
       "deposit_body": "表示されている利率は、現在の市況に基づく予想年換算利率 (APY) です。APYは変動制で、保証されるものではありません。"
     },
     "earnings_tooltip": {
@@ -7440,9 +7461,9 @@
     "how_it_works_page": {
       "header_title": "マネー",
       "section_title": "報酬獲得の仕組み",
-      "description_1": "マネーアカウントにmUSDを追加すると、最大{{percentage}}%のAPY (変動制) を自動的に獲得できます。資金はDeFiヴォールトに入金され、Steakhouse Financialのリスクモニタリングと共に、Vedaによって管理されます。レートは、ブロックチェーンプロトコルの資金を表示するサードパーティDeFiプラットフォームにより生成されています。ステーキングや請求は不要で、ロックアップされません。",
+      "description_1": "Money AccountにmUSDを追加すると、最大{{percentage}}%のAPY (変動制) を自動的に獲得できます。資金はDeFiヴォールトに入金され、Steakhouse Financialのリスクモニタリングと共に、Vedaによって管理されます。レートは、ブロックチェーンプロトコルの資金を表示するサードパーティDeFiプラットフォームにより生成されています。ステーキングや請求は不要で、ロックアップされません。",
       "description_2": "マネー残高は使用可能な残高です。MetaMaskカードをリンクすれば、世界中の1億5千万以上のマーチャントで使用できます。資金は使うまで収益を生み続けます。",
-      "description_3": "マネーアカウントはMonadにより運用されています。",
+      "description_3": "Money AccountはMonadにより運用されています。",
       "faq_title": "FAQ",
       "faq_q1": "MetaMask Money Accountとは何ですか？",
       "faq_a1": "最大{{percentage}}%の変動APY（年換算利回り）が得られるアカウントです。アカウントに入金すると、資金がmUSDで保持され、最大{{percentage}}%のAPYが得られます。mUSDは、MetaMaskのドル連動型ステーブルコインです。資金はいつでも利用または出金でき、ペナルティは一切ありません。MetaMask Cardを使えば、世界中にある1億5000万を超えるMastercard加盟店で資金を利用できます。",
@@ -7458,7 +7479,7 @@
       "faq_q6": "利益はどこから生まれるのですか？",
       "faq_a6": "ユーザーが入金すると、その資金はAaveやMorphoなどの確立されたDeFiプロトコルに預け入れられます。これらのプロトコルは実際の経済活動から収益を上げ、これらの収益がAPY（年換算利回り）の形でユーザーに届けられます。\n\nプロトコル内での資金の配分状況は、Steakhouse Financialという第三者サービスプロバイダーによって監視されます。ユーザーの資金を保管するボールトスマートコントラクトのデプロイと維持・管理は、第三者インフラプロバイダーのVedaが担当します。\n\nここで得られる収益は、MetaMaskまたはmUSDの発行者が利息として支払うものではありません。第三者であるDeFiプロトコル内のポジションから生まれるオンチェーン上の収益が配分される仕組みとなっています。",
       "faq_q7": "どのトークンをMoney Accountに入金できますか？",
-      "faq_a7": "以下のステーブルコインおよびaTokenは、換算手数料なしでMoney Accountに入金できます。\n\n{{tokenBullets}}\n\nその他のすべてのEVMトークンもMoney Accountに入金できますが、通常の手数料がかかる場合があります。また、デビットカード、クレジットカード、銀行口座、PayPal、Apple Pay、Google Payを利用してMoney Accountに入金することも可能です。\n\n注：流動性を確保するため、トークンごとの初回入金の上限額は10万ドルとなっています。",
+      "faq_a7": "以下のステーブルコインおよびaTokenは、換算手数料なしでMoney Accountに入金できます。\n\n{{tokenBullets}}\n\nその他のすべてのEVMトークンもMoney Accountに入金できますが、標準の手数料がかかる場合があります。また、デビットカード、クレジットカード、銀行口座、PayPal、Apple Pay、Google Payを利用してMoney Accountに入金することも可能です。\n\n注：流動性を確保するため、トークンごとの初回入金の上限額は10万ドルとなっています。",
       "faq_q8": "MetaMask Money Accountからいつでも引き出すことができますか？",
       "faq_a8": "はい。MetaMaskに対する通知期間、違約金、出金手数料を設けられておらず、いつでも残高全額を取引、送金、ショッピング、出金にご利用いただけます。流動性が逼迫している場合は、一時的に遅延が発生することがあります。",
       "faq_q9": "MetaMask Money Accountを使用するには本人確認が必要ですか？",
@@ -7469,8 +7490,8 @@
       "disclosures_body": "Money Accountは、銀行口座、普通預金口座、または保険対象の預金商品ではありません。APYは変動制であり、保証されるものではありません。Money Accountには、スマートコントラクト、プロトコル、流動性その他に関するリスクが伴い、資金の一部または全部が失われる可能性があります。地域ごとの制限の対象となります。規約が適用されます。"
     },
     "geo_block": {
-      "title": "マネーアカウントは利用できません",
-      "description": "お住まいの地域では、現地の制限または制裁により、マネーアカウントをご利用いただけません。",
+      "title": "Money Accountは利用できません",
+      "description": "お住まいの地域では、現地の制限または制裁により、Money Accountをご利用いただけません。",
       "button": "了解"
     },
     "deeplink_modal": {
@@ -7755,7 +7776,7 @@
       "other_assets": "その他の資産",
       "other_assets_description": "お持ちのトークンからお選びください",
       "other_assets_receive_description": "受け取りたいトークンを選択してください",
-      "money_account": "マネーアカウント"
+      "money_account": "Money Account"
     },
     "staking_footer": {
       "part1": "続行することで、",
@@ -8910,9 +8931,9 @@
       "on_linea": "Lineaで",
       "account_label": "アカウント",
       "token_label": "トークン",
-      "money_account_label": "マネーアカウント",
+      "money_account_label": "Money Account",
       "money_account_token_symbol": "mUSD",
-      "use_money_account_cta": "マネーアカウントを使用",
+      "use_money_account_cta": "Money Accountを使用",
       "spend_and_earn_title": "使えば貯まる",
       "spend_and_earn_description_prefix": "カードに残高をリンクすると、購入時にmUSDが還元されます。さらに残高に対し最大",
       "spend_and_earn_description_apy": "年換算利率 (APY) {{apy}}%",
@@ -8938,9 +8959,9 @@
         "confirm_button_label": "資金源を設定する"
       },
       "money_account_required": {
-        "title": "マネーアカウントの設定",
-        "description": "mUSDを引き換える前に、リンク済みのマネー アカウントが必要です。",
-        "confirm_button_label": "マネーアカウントの設定"
+        "title": "Money Accountの設定",
+        "description": "mUSDを引き換える前に、リンク済みのMoney Accountが必要です。",
+        "confirm_button_label": "Money Accountの設定"
       }
     },
     "credit_screen": {
@@ -8961,9 +8982,9 @@
         "confirm_button_label": "資金源を設定する"
       },
       "money_account_required": {
-        "title": "マネーアカウントの設定",
+        "title": "Money Accountの設定",
         "description": "クレジットを払い戻す前に、リンク済みのMoney Accountが必要です。",
-        "confirm_button_label": "マネーアカウントの設定"
+        "confirm_button_label": "Money Accountの設定"
       },
       "refund_info": {
         "title": "返金残高",
@@ -8975,7 +8996,7 @@
       "title": "利用可能残高",
       "description": "残高は、Money Accountの残高とこれまでに受け取ったすべての返金で構成されています。",
       "description_no_money_account": "残高は、ウォレットの残高とお客様が受け取ったすべての返金で構成されています。",
-      "money_account": "マネーアカウント",
+      "money_account": "Money Account",
       "wallet": "ウォレット",
       "refund_balance": "返金残高"
     },
@@ -9723,7 +9744,7 @@
     "earn_rewards": {
       "title": "報酬を獲得しましょう",
       "musd_title": "mUSDに対して最大{{percentage}}%のボーナス",
-      "musd_subtitle": "マネーアカウントが新登場",
+      "musd_subtitle": "Money Accountが新登場",
       "card_title": "使用額の最大3%を還元",
       "card_subtitle": "今すぐMetaMaskカードを取得",
       "card_subtitle_cardholder": "MetaMaskカードの特典を利用"
@@ -9795,8 +9816,8 @@
       "predict_claim": "報酬を請求しました",
       "predict_deposit": "Predictアカウントに入金しました",
       "predict_withdraw": "出金",
-      "money_account_deposit": "マネーアカウントに入金",
-      "money_account_withdraw": "マネーアカウントから送金",
+      "money_account_deposit": "Money Accountに入金",
+      "money_account_withdraw": "Money Accountから送金",
       "default": "トランザクションの詳細"
     },
     "label": {
@@ -9819,7 +9840,7 @@
       "you_sent": "送金額",
       "you_received": "受取額",
       "token_received": "トークンを受け取りました",
-      "money_account": "マネーアカウント",
+      "money_account": "Money Account",
       "perps_account": "パーペチュアルアカウント1",
       "predictions_account": "予測市場アカウント1",
       "steps_completed": "手順（{{count}}件完了）",

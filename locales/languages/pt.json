@@ -2084,7 +2084,8 @@
       "products": "Produtos",
       "top_movers": "Principais movimentações",
       "gainers": "Ganhadores",
-      "losers": "Perdedores"
+      "losers": "Perdedores",
+      "recently_added": "Recently added"
     },
     "learn_more": {
       "title": "Saiba mais sobre perps (futuros perpétuos)",
@@ -2178,8 +2179,15 @@
       "filter_badge_label": "Lista de acompanhamento",
       "suggested": "Sugerido"
     },
+    "market_count": "{{count}} market",
+    "market_count_plural": "{{count}} markets",
     "no_tokens_found": "Nenhum token encontrado",
     "no_tokens_found_description": "Não encontramos tokens com o nome \"{{searchQuery}}\". Tente outro termo de pesquisa.",
+    "no_markets_found": "No markets found",
+    "no_markets_found_description": "No markets match your current filter. Try a different category.",
+    "no_markets_search_description": "No markets match \"{{searchQuery}}\" in this category. Try a different search or clear the filter.",
+    "clear_search": "Clear search",
+    "clear_filter": "Clear filter",
     "testnet": "Testnet",
     "mainnet": "Mainnet",
     "developer_options": {
@@ -2494,6 +2502,7 @@
     },
     "outcome_groups": {
       "game_lines": "Linhas de jogo",
+      "halves": "Halves",
       "first_half": "1º Tempo",
       "first_set": "1ª Série",
       "team_totals": "Totais da equipe",
@@ -2522,6 +2531,7 @@
       "first_half_moneyline": "1H Moneyline",
       "first_half_spreads": "1H Spreads",
       "first_half_totals": "1H Totais",
+      "second_half_totals": "2H Totals",
       "points": "Pontos",
       "assists": "Assistências",
       "rebounds": "Rebotes",
@@ -2529,6 +2539,7 @@
       "basketball_odd_even": "Pontuação Ímpar/Par",
       "basketball_team_to_score_first": "Time a marcar primeiro",
       "goalscorers": "Artilheiros",
+      "soccer_player_goals": "Goals",
       "exact_score": "Placar exato",
       "halftime_result": "Resultado do intervalo",
       "corners": "Escanteios",
@@ -2540,6 +2551,11 @@
       "soccer_anytime_goalscorer": "Artilheiros",
       "soccer_exact_score": "Placar exato",
       "soccer_halftime_result": "Resultado do intervalo",
+      "soccer_first_half_team_totals": "1st Half Team Totals",
+      "both_teams_to_score_first_half": "1st Half Both Teams to Score",
+      "soccer_second_half_result": "2nd Half Result",
+      "soccer_second_half_team_totals": "2nd Half Team Totals",
+      "both_teams_to_score_second_half": "2nd Half Both Teams to Score",
       "soccer_team_to_advance": "Time a avançar",
       "soccer_first_to_score": "Primeiro time a marcar",
       "soccer_extra_time": "Prorrogação?",
@@ -3993,8 +4009,8 @@
         "title": "Cartão",
         "reset_onboarding_description": "Redefina o estado de integração do Cartão para iniciar o fluxo de integração desde o início.",
         "reset_onboarding_button": "Redefinir estado de integração",
-        "unlink_money_account_description": "Revogar a autorização de limite de gasto de USDC que permite ao Cartão gastar a partir da sua Conta Money. Isso envia uma transação de aprovar(0) e marca a Conta Money como não delegada no sistema interno do Cartão.",
-        "unlink_money_account_button": "Desvincular conta Money do Cartão",
+        "unlink_money_account_description": "Revogue a autorização de limite de gasto de USDC que permite ao cartão gastar a partir da sua Money Account. Isso envia uma transação approve(0) e marca a Money Account como não atribuída no sistema interno do cartão.",
+        "unlink_money_account_button": "Desvincular Money Account do cartão",
         "unlink_money_account_disabled_hint": "Nenhum vínculo ativo para remover."
       },
       "identity": {
@@ -4856,21 +4872,21 @@
     "activity_perps_withdrawal": "Saque de perps",
     "activity_perps_open_long": "Posição long aberta",
     "activity_perps_close_long": "Posição long fechada",
-    "activity_perps_close_long_liquidated": "Long fechada — liquidada",
-    "activity_perps_close_long_stop_loss": "Long fechada — stop loss",
+    "activity_perps_close_long_liquidated": "Closed long — liquidated",
+    "activity_perps_close_long_stop_loss": "Closed long — stop loss",
     "activity_perps_open_short": "Posição short aberta",
     "activity_perps_close_short": "Posição short fechada",
-    "activity_perps_close_short_liquidated": "Short fechada — liquidada",
-    "activity_perps_close_short_stop_loss": "Short fechada — stop loss",
+    "activity_perps_close_short_liquidated": "Closed short — liquidated",
+    "activity_perps_close_short_stop_loss": "Closed short — stop loss",
     "activity_perps_paid_funding_fees": "Taxas de financiamento pagas",
     "activity_perps_received_funding_fees": "Taxas de financiamento recebidas",
-    "activity_perps_close_short_take_profit": "Short fechada — take profit",
-    "activity_perps_close_long_take_profit": "Long fechada — take profit",
+    "activity_perps_close_short_take_profit": "Closed short — take profit",
+    "activity_perps_close_long_take_profit": "Closed long — take profit",
     "activity_market_short": "Posição short a mercado",
-    "activity_stop_market_close_short": "Stop market — fechar short",
-    "activity_market_close_short": "Market — fechar short",
+    "activity_stop_market_close_short": "Stop market — close short",
+    "activity_market_close_short": "Market — close short",
     "activity_limit_short": "Limitar short",
-    "activity_limit_close_short": "Limitar — fechar short",
+    "activity_limit_close_short": "Limit — close short",
     "claim": "Resgatar",
     "sent_ether": "ETH enviado",
     "self_sent_ether": "Envio de ETH para você mesmo",
@@ -4903,8 +4919,8 @@
     "tx_details_free": "Gratuito",
     "tx_details_not_available": "Não disponível",
     "smart_contract_interaction": "Interação com contrato inteligente",
-    "money_account_deposit": "Depositar em conta bancária",
-    "money_account_withdraw": "Transferência da conta bancária",
+    "money_account_deposit": "Depositar na Money Account",
+    "money_account_withdraw": "Transferir da Money Account",
     "swaps_transaction": "Transação de trocas",
     "bridge_transaction": "Ponte",
     "approve": "Aprovar",
@@ -6660,7 +6676,12 @@
   },
   "download_files": {
     "error": "Falha ao baixar anexo.",
-    "unknownError": "Ocorreu um erro desconhecido"
+    "unknownError": "Ocorreu um erro desconhecido",
+    "downloaded_title": "Download complete",
+    "downloaded_message": "{{filename}} was saved to your Downloads folder.",
+    "confirm_message": "Do you want to download \n{{filename}}?",
+    "confirm_action": "Download",
+    "cancel_action": "Cancel"
   },
   "remember_me": {
     "enable_remember_me": "Ativar \"Lembrar de mim\"",
@@ -7159,13 +7180,13 @@
     "balance_unavailable_value": "$—",
     "balance_unavailable_banner_description": "Estamos temporariamente impossibilitados de exibir seu saldo. Seus fundos estão seguros — tente novamente em breve.",
     "balance_retry": "Tentar novamente",
-    "balance_no_account": "Conta Money não encontrada",
+    "balance_no_account": "Money Account não encontrada",
     "onboarding": {
       "step_1": {
         "title": "Ganhe até {{apy}}% de APY",
-        "title_no_apy": "Adicione fundos à sua conta de dinheiro",
-        "description": "Adicione fundos à sua conta de dinheiro e veja seu saldo crescer com até {{apy}}% APY (variável).",
-        "description_no_apy": "Adicione fundos à sua conta de dinheiro e veja seu saldo crescer.",
+        "title_no_apy": "Adicione fundos à sua Money Account",
+        "description": "Adicione fundos à sua Money Account e veja seu saldo crescer com até {{apy}}% APY (variável).",
+        "description_no_apy": "Adicione fundos à sua Money Account e veja seu saldo crescer.",
         "cta": "Adicionar fundos"
       },
       "step_2": {
@@ -7185,19 +7206,19 @@
     },
     "first_time_deposit": {
       "title": "Primeiro depósito concluído",
-      "content": "Está na sua conta Money —\n e já está ganhando.",
+      "content": "Está na sua Money Account —\n e já está rendendo.",
       "button_text": "Pronto"
     },
     "rive_onboarding": {
-      "step1_title": "As contas Money chegaram",
+      "step1_title": "As Money Accounts chegaram",
       "step1_body": "Ganhe até {{percentage}}% de APY sobre o seu saldo, disponível em toda a sua carteira.",
       "step1_footer_text": "A APY é variável e não garantida.",
       "step2_title": "Ganhe automaticamente",
       "step2_body": "Transfira moedas estáveis sem taxas de câmbio. Seus fundos começam a render imediatamente.",
-      "step2_footer_text": "A conta Money usa a infraestrutura da Veda.",
+      "step2_footer_text": "A Money Account usa a infraestrutura da Veda.",
       "step3_title": "Gaste em qualquer lugar",
-      "step3_body_card_eligible": "Receba até {{percentage}}% de cashback em compras ao vincular sua conta Money a um cartão MetaMask.",
-      "step3_body_card_ineligible": "Em breve! Receba até {{percentage}}% de cashback em compras ao vincular sua conta Money a um cartão MetaMask.",
+      "step3_body_card_eligible": "Receba até {{percentage}}% de cashback em compras ao vincular sua Money Account a um cartão MetaMask.",
+      "step3_body_card_ineligible": "Em breve! Receba até {{percentage}}% de cashback em compras ao vincular sua Money Account a um cartão MetaMask.",
       "step3_footer_text": "Inclui monitoramento da Steakhouse Financial.",
       "step4_title": "Negocie e ganhe em um só lugar",
       "step4_body": "Use o saldo de sua conta Money para negociar na MetaMask e ainda obter rendimento.",
@@ -7269,11 +7290,11 @@
       "link_card_sheet_description_suffix": " (variável).",
       "link_card_sheet_description_no_apy": "Vincule seu cartão para poder gastar o saldo da sua conta Money e ganhar mUSD de volta em compras.",
       "link_card_sheet_cta": "Vincular cartão",
-      "unlink_card_sheet_title_no_funding_source": "Desvincular conta de dinheiro?",
+      "unlink_card_sheet_title_no_funding_source": "Desvincular Money Account?",
       "unlink_card_sheet_title_with_funding_source": "Tem certeza?",
-      "unlink_card_sheet_description_no_funding_source": "Você deixará de ganhar sobre compras. Gastos futuros no cartão serão recusados até que você defina uma nova fonte de fundos. Reconecte sua conta de dinheiro a qualquer momento.",
-      "unlink_card_sheet_description_with_funding_source": "Você deixará de ganhar sobre compras. Gastos futuros no cartão usarão os fundos de {{fundingSource}}. Reconecte sua conta de dinheiro a qualquer momento.",
-      "unlink_card_sheet_another_money_account": "outra conta de dinheiro",
+      "unlink_card_sheet_description_no_funding_source": "Você deixará de ganhar sobre compras. Gastos futuros no cartão serão recusados até que você defina uma nova fonte de fundos. Reconecte sua Money Account a qualquer momento.",
+      "unlink_card_sheet_description_with_funding_source": "Você deixará de ganhar sobre compras. Gastos futuros no cartão usarão os fundos de {{fundingSource}}. Reconecte sua Money Account a qualquer momento.",
+      "unlink_card_sheet_another_money_account": "outra Money Account",
       "unlink_card_sheet_keep_linked": "Manter vinculada",
       "unlink_card_sheet_unlink_account": "Desvincular conta",
       "manage_card": "Gerenciar",
@@ -7281,7 +7302,7 @@
       "verification_pending": "Sua verificação de identidade está em análise. Geralmente isso leva menos de 12 horas."
     },
     "what_you_get": {
-      "title": "Benefícios da conta de dinheiro",
+      "title": "Benefícios da Money Account",
       "benefit_auto_earn": "Ganhe automaticamente até",
       "benefit_auto_earn_variable": "(variável)",
       "benefit_dollar_backed": "Mantenha seu dinheiro seguro em mUSD, uma stablecoin lastreada em dólar na proporção de 1:1",
@@ -7308,7 +7329,7 @@
     "more_sheet": {
       "title": "Mais",
       "how_it_works": "Como funciona",
-      "what_you_get": "Benefícios da conta de dinheiro",
+      "what_you_get": "Benefícios da Money Account",
       "contact_support": "Falar com o suporte"
     },
     "transfer_sheet": {
@@ -7330,8 +7351,8 @@
       "deposit_success_title_convert": "Conversão concluída",
       "deposit_success_title_add_musd": "Fundos adicionados",
       "deposit_success_title_card": "Depósito concluído",
-      "deposit_success_body": "{{amount}} adicionado à conta Money.",
-      "deposit_success_body_no_amount": "Adicionado à conta Money.",
+      "deposit_success_body": "{{amount}} adicionado à Money Account.",
+      "deposit_success_body_no_amount": "Adicionado à Money Account.",
       "withdraw_in_progress_title": "Transferência em andamento",
       "withdraw_success_title": "Transferência concluída",
       "withdraw_success_body": "{{amount}} adicionado a {{destination}}.",
@@ -7355,10 +7376,10 @@
     },
     "apy_tooltip": {
       "title": "Rendimento Percentual Anual (APY)",
-      "paragraph_1": "Sua conta Money rende até {{percentage}}% automaticamente.",
+      "paragraph_1": "Sua Money Account rende até {{percentage}}% automaticamente.",
       "paragraph_2": "A taxa exibida representa um Rendimento Percentual Anual (APY) estimado, calculado com base nas condições atuais do mercado. O APY é variável e não é garantido. Os fundos são alocados em um cofre DeFi, administrado pela Veda com supervisão de risco pela Steakhouse Financial, que gera rendimentos em mercados de empréstimo consolidados.",
       "paragraph_3": "Ao vincular seu cartão MetaMask, as compras serão deduzidas desse saldo.",
-      "paragraph_4": "A conta Money tem tecnologia da Monad.",
+      "paragraph_4": "A Money Account tem tecnologia da Monad.",
       "deposit_body": "A taxa apresentada é uma estimativa da Taxa Anual Efetiva (APY) com base nas condições atuais do mercado. A APY é variável e não é garantida."
     },
     "earnings_tooltip": {
@@ -7440,48 +7461,48 @@
     "how_it_works_page": {
       "header_title": "Money",
       "section_title": "Como funciona",
-      "description_1": "Adicione mUSD à sua conta Money e ganhe até {{percentage}}% de APY (variável) automaticamente. Os fundos são depositados em um cofre DeFi, administrado pela Veda e com monitoramento de risco pela Steakhouse Financial. A taxa é gerada por plataformas DeFi de terceiros que alocam fundos em protocolos blockchain. Sem staking, sem reivindicações, sem bloqueios.",
+      "description_1": "Adicione mUSD à sua Money Account e ganhe até {{percentage}}% APY (variável) automaticamente. Os fundos são depositados em um cofre DeFi, administrado pela Veda e com monitoramento de risco pela Steakhouse Financial. A taxa é gerada por plataformas DeFi de terceiros que alocam fundos em protocolos blockchain. Sem staking, sem reivindicações, sem bloqueios.",
       "description_2": "O saldo da sua conta Money é o seu saldo disponível para gastos. Vincule seu cartão MetaMask para gastar em mais de 150 milhões de estabelecimentos comerciais em todo o mundo. Seu dinheiro continua rendendo até o momento em que você o utiliza.",
-      "description_3": "A conta Money tem tecnologia da Monad.",
+      "description_3": "A Money Account tem tecnologia da Monad.",
       "faq_title": "Perguntas Frequentes (FAQs)",
-      "faq_q1": "O que é a conta MetaMask Money?",
+      "faq_q1": "O que é a MetaMask Money Account?",
       "faq_a1": "Uma conta que rende até {{percentage}}% APY variável. Você deposita fundos, que são mantidos na conta como mUSD e rendem até {{percentage}}% APY. O mUSD é a stablecoin da MetaMask com lastro no dólar. Você pode usar ou sacar seus fundos a qualquer momento, sem penalidades. Você pode gastar seus fundos com o cartão MetaMask em mais de 150 milhões de comerciantes no mundo todo que aceitam MasterCard.",
-      "faq_q2": "A conta MetaMask Money é segura?",
-      "faq_a2": "Sim, mas como todo produto DeFi, vem acompanhada de riscos. É uma carteira autocustodiada, ou seja, você tem controle total sobre sua conta com suas chaves privadas.\n\nOs riscos incluem falhas no contrato inteligente, exploração indevida de protocolo, falta de liquidez, falhas de terceiros, e restrições legais e regulatórias. A conta de dinheiro não é segurada pelo FDIC nem por qualquer outro órgão governamental. Há risco de perdas.",
-      "faq_q3": "Quem controla minha conta MetaMask Money?",
+      "faq_q2": "A MetaMask Money Account é segura?",
+      "faq_a2": "Sim, mas como todo produto DeFi, vem acompanhada de riscos. É uma carteira autocustodiada, ou seja, você tem controle total sobre sua conta com suas chaves privadas.\n\nOs riscos incluem falhas no contrato inteligente, exploração indevida de protocolo, falta de liquidez, falhas de terceiros, e restrições legais e regulatórias. A Money Account não é segurada pelo FDIC nem por qualquer outro órgão governamental. Há risco de perdas.",
+      "faq_q3": "Quem controla minha MetaMask Money Account?",
       "faq_a3": "Você! A MetaMask é uma carteira autocustodiada, ou seja, somente as chaves privadas do titular da conta a controlam. A MetaMask não pode acessar, congelar ou movimentar seus fundos. Isso é o que nos distingue de contas bancárias tradicionais e plataformas de criptomoedas custodiadas — não há terceiros retendo seus fundos.",
-      "faq_q4": "Quais são as taxas da conta MetaMask Money?",
-      "faq_a4": "Não há taxa para abrir uma conta de dinheiro nem para depositar stablecoins. Serão cobradas taxas quando você depositar tokens que não sejam stablecoins. Há também taxas associadas às transações no cartão MetaMask, saques em caixas eletrônicos e custos de off-ramp de moeda local. ",
+      "faq_q4": "Quais são as taxas da MetaMask Money Account?",
+      "faq_a4": "Não há taxa para abrir uma Money Account nem para depositar stablecoins. Serão cobradas taxas quando você depositar tokens que não sejam stablecoins. Há também taxas associadas às transações no cartão MetaMask, saques em caixas eletrônicos e custos de off-ramp de moeda local. ",
       "faq_a4_link": "Veja o detalhamento completo de taxas do cartão aqui.",
-      "faq_q5": "Quanto eu posso ganhar com uma conta MetaMask Money?",
-      "faq_a5": "Até {{percentage}}% APY. A taxa é variável e flutua com as condições do mercado. A taxa atual fica sempre visível dentro da conta de dinheiro.",
+      "faq_q5": "Quanto eu posso ganhar com uma MetaMask Money Account?",
+      "faq_a5": "Até {{percentage}}% APY. A taxa é variável e flutua com as condições do mercado. A taxa atual fica sempre visível dentro da Money Account.",
       "faq_q6": "De onde vem o rendimento?",
       "faq_a6": "Quando você deposita fundos, eles são colocados em protocolos DeFi estabelecidos, como Aave e Morpho, onde podem gerar retornos com atividades econômicas reais. Esses retornos então são entregues a você na forma de APY.\n\nUm prestador de serviço terceirizado chamado Steakhouse Financial monitora como os fundos são alocados nos protocolos. Veda, um provedor de infraestrutura terceirizado, implanta e mantém os contratos inteligentes do cofre que retém seus fundos.\n\nOs ganhos não são juros pagos pela MetaMask ou pelo emissor do mUSD. Eles são retornos on-chain gerados pelas posições em protocolos DeFi de terceiros.",
-      "faq_q7": "Quais tokens posso depositar na conta de dinheiro?",
-      "faq_a7": "Você pode depositar as seguintes stablecoins e aTokens em sua conta de dinheiro com zero taxa de conversão:\n\n{{tokenBullets}}\n\nTodos os outros tokens EVM podem ser depositados na conta de dinheiro, mas as taxas padrão se aplicam. Você também pode adicionar fundos à sua conta de dinheiro usando cartão de débito, cartão de crédito, conta bancária, PayPal, Apple Pay e Google Play.\n\nObservação: há um depósito máximo inicial de US$ 100.000 por token para garantir liquidez.",
-      "faq_q8": "Posso sacar da conta MetaMask Money a qualquer momento?",
+      "faq_q7": "Quais tokens posso depositar na Money Account?",
+      "faq_a7": "Você pode depositar as seguintes stablecoins e aTokens em sua Money Account com zero taxa de conversão:\n\n{{tokenBullets}}\n\nTodos os outros tokens EVM podem ser depositados na Money Account, mas as taxas padrão se aplicam. Você também pode adicionar fundos à sua Money Account usando cartão de débito, cartão de crédito, conta bancária, PayPal, Apple Pay e Google Play.\n\nObservação: há um depósito máximo inicial de US$ 100.000 por token para garantir liquidez.",
+      "faq_q8": "Posso sacar da MetaMask Money Account a qualquer momento?",
       "faq_a8": "Sim. Você pode negociar, enviar, gastar ou sacar todo o seu saldo a qualquer momento, sem períodos de aviso, sem penalidades e sem taxas de saque da MetaMask. Se a liquidez estiver baixa, pode haver atrasos temporários.",
-      "faq_q9": "Preciso completar uma verificação de identidade para usar a conta MetaMask Money?",
-      "faq_a9": "Não, abrir uma conta de dinheiro não exige verificação de identidade. No entanto, alguns recursos exigem verificação, a exemplo do cartão e Ramps. As verificações são realizadas por provedores terceirizados, que operam serviços regulamentados, não pela MetaMask. Se necessário, você será guiado pelo processo dentro do app durante a inscrição.",
-      "faq_q10": "Em que países a conta MetaMask Money está disponível?",
+      "faq_q9": "Preciso completar uma verificação de identidade para usar a MetaMask Money Account?",
+      "faq_a9": "Não, abrir uma Money Account não exige verificação de identidade. No entanto, alguns recursos exigem verificação, a exemplo do cartão e Ramps. As verificações são realizadas por provedores terceirizados, que operam serviços regulamentados, não pela MetaMask. Se necessário, você será guiado pelo processo dentro do app durante a inscrição.",
+      "faq_q10": "Em que países a MetaMask Money Account está disponível?",
       "faq_a10": "Na maioria! Atualmente não estamos disponíveis no Reino Unido e em países na lista de sanções dos EUA.",
       "disclosures_title": "Risco e Divulgações",
-      "disclosures_body": "A conta de dinheiro não é uma conta bancária, conta poupança ou produto de depósito segurado. O APY é variável e não garantido. A conta de dinheiro envolve contrato inteligente, protocolo, liquidez e outros riscos, e você pode perder seus fundos parcial ou totalmente. Sujeito a restrições regionais. Termo se aplicam."
+      "disclosures_body": "A Money Account não é uma conta bancária, conta poupança ou produto de depósito segurado. O APY é variável e não garantido. A Money Account envolve contrato inteligente, protocolo, liquidez e outros riscos, e você pode perder seus fundos parcial ou totalmente. Sujeito a restrições regionais. Termo se aplicam."
     },
     "geo_block": {
-      "title": "Conta Money não disponível",
-      "description": "A conta Money não está disponível em sua localização devido a restrições ou sanções locais.",
+      "title": "Money Account não disponível",
+      "description": "A Money Account não está disponível em sua localização devido a restrições ou sanções locais.",
       "button": "Entendi"
     },
     "deeplink_modal": {
       "button": "Entendi",
       "money_account_disabled": {
-        "title": "A conta de dinhero está temporariamente indisponível",
-        "description": "Estamos trabalhando nisso. A conta de dinheiro voltará ao normal em instantes — confira em breve."
+        "title": "A Money Account está temporariamente indisponível",
+        "description": "Estamos trabalhando nisso. A Money Account voltará ao normal em instantes — confira em breve."
       },
       "excluded_from_gradual_rollout": {
-        "title": "A conta de dinheiro está chegando",
-        "description": "Estamos liberando a conta de dinheiro gradualmente para garantir que tudo funcione corretamente. Confira em breve."
+        "title": "A Money Account está chegando",
+        "description": "Estamos liberando a Money Account gradualmente para garantir que tudo funcione corretamente. Confira em breve."
       }
     }
   },
@@ -7755,7 +7776,7 @@
       "other_assets": "Outros ativos",
       "other_assets_description": "Selecione um de seus tokens",
       "other_assets_receive_description": "Selecione o token que você deseja receber",
-      "money_account": "Conta Money"
+      "money_account": "Money Account"
     },
     "staking_footer": {
       "part1": "Ao continuar, você concorda com os nossos ",
@@ -8862,7 +8883,7 @@
         "manage_spending_limit": "Gerenciar limite",
         "manage_spending_limit_description_restricted": "Limitação de gastos ativada",
         "manage_spending_limit_description_full": "Acesso total está ativado",
-        "unlink_money_account": "Desvincular conta de dinheiro",
+        "unlink_money_account": "Desvincular Money Account",
         "unlink_money_account_description": "Altere sua fonte de fundos do cartão",
         "travel_title": "MetaMask Viagem",
         "travel_description": "Reserve hotéis com até 70% de desconto",
@@ -8910,9 +8931,9 @@
       "on_linea": "na Linea",
       "account_label": "Conta",
       "token_label": "Token",
-      "money_account_label": "Conta Money",
+      "money_account_label": "Money Account",
       "money_account_token_symbol": "mUSD",
-      "use_money_account_cta": "Usar conta Money",
+      "use_money_account_cta": "Usar Money Account",
       "spend_and_earn_title": "Gaste e ganhe",
       "spend_and_earn_description_prefix": "Vincule seu saldo ao seu cartão e receba mUSD de volta em compras. Além disso, ganhe até ",
       "spend_and_earn_description_apy": "{{apy}}% APY",
@@ -8938,9 +8959,9 @@
         "confirm_button_label": "Configurar financiamento"
       },
       "money_account_required": {
-        "title": "Criar conta Money",
-        "description": "É necessário ter uma Conta Money vinculada para resgatar mUSD.",
-        "confirm_button_label": "Criar conta Money"
+        "title": "Criar Money Account",
+        "description": "É necessário ter uma Money Account vinculada para resgatar mUSD.",
+        "confirm_button_label": "Configurar Money Account"
       }
     },
     "credit_screen": {
@@ -8950,7 +8971,7 @@
       "expected_to_receive": "Recebimento previsto",
       "to": "Para",
       "withdraw": "Transferir fundos",
-      "withdraw_to_money_account": "Transferir para a conta de dinheiro",
+      "withdraw_to_money_account": "Transferir para a Money Account",
       "withdraw_unavailable": "Resgate indisponível",
       "withdrawal_success": "Resgate concluído com sucesso",
       "withdrawal_failed": "Falha no resgate. Tente novamente.",
@@ -8961,27 +8982,27 @@
         "confirm_button_label": "Configurar financiamento"
       },
       "money_account_required": {
-        "title": "Criar conta Money",
-        "description": "Você precisa de uma conta de dinheiro vinculada antes de resgatar seu crédito.",
-        "confirm_button_label": "Criar conta Money"
+        "title": "Configurar Money Account",
+        "description": "Você precisa de uma Money Account vinculada antes de resgatar seu crédito.",
+        "confirm_button_label": "Configurar Money Account"
       },
       "refund_info": {
         "title": "Saldo de reembolsos",
-        "description": "Este saldo inclui quaisquer reembolsos que você tenha recebido. É o primeiro saldo do qual suas compras com o cartão debitarão. Ele pode ser transferido para a sua conta de dinheiro a qualquer momento.",
+        "description": "Este saldo inclui quaisquer reembolsos que você tenha recebido. É o primeiro saldo do qual suas compras com o cartão debitarão. Ele pode ser transferido para a sua Money Account a qualquer momento.",
         "description_no_money_account": "Este saldo inclui quaisquer reembolsos que você tenha recebido. É o primeiro saldo do qual suas compras com o cartão debitarão. Ele pode ser resgatado para a sua carteira a qualquer momento."
       }
     },
     "credit_balance_tooltip": {
       "title": "Saldo disponível",
-      "description": "Seu saldo é constituído pelo saldo da sua conta de dinheiro e quaisquer reembolsos que você tenha recebido.",
+      "description": "Seu saldo é constituído pelo saldo da sua Money Account e quaisquer reembolsos que você tenha recebido.",
       "description_no_money_account": "Seu saldo é constituído pelo saldo da sua carteira e quaisquer reembolsos que você tenha recebido.",
-      "money_account": "Conta Money",
+      "money_account": "Money Account",
       "wallet": "Carteira",
       "refund_balance": "Saldo de reembolsos"
     },
     "credit_banner": {
       "title": "Saldo de reembolsos: {{amount}}",
-      "description": "Gaste-o ou transfira-o para sua conta de dinheiro para continuar ganhando sobre seu saldo.",
+      "description": "Gaste-o ou transfira-o para sua Money Account para continuar ganhando sobre seu saldo.",
       "description_no_money_account": "Gaste-o ou resgate-o para sua carteira.",
       "confirm_button_label": "Transferir fundos"
     },
@@ -9723,7 +9744,7 @@
     "earn_rewards": {
       "title": "Ganhe recompensas",
       "musd_title": "Até {{percentage}}% de bônus sobre mUSD",
-      "musd_subtitle": "As contas Money chegaram",
+      "musd_subtitle": "As Money Accounts chegaram",
       "card_title": "Até 3% de reembolso em gastos",
       "card_subtitle": "Peça já o seu Cartão MetaMask",
       "card_subtitle_cardholder": "Acesse os benefícios do seu Cartão MetaMask"
@@ -9795,8 +9816,8 @@
       "predict_claim": "Ganhos resgatados",
       "predict_deposit": "Conta Predict creditada",
       "predict_withdraw": "Sacar",
-      "money_account_deposit": "Depositar em conta bancária",
-      "money_account_withdraw": "Transferência da conta bancária",
+      "money_account_deposit": "Depositar na Money Account",
+      "money_account_withdraw": "Transferir da Money Account",
       "default": "Dados da transação"
     },
     "label": {
@@ -9819,7 +9840,7 @@
       "you_sent": "Você enviou",
       "you_received": "Você recebeu",
       "token_received": "Token recebido",
-      "money_account": "Conta Money",
+      "money_account": "Money Account",
       "perps_account": "Conta de perps 1",
       "predictions_account": "Conta de previsões 1",
       "steps_completed": "Etapas ({{count}} concluídas)",
