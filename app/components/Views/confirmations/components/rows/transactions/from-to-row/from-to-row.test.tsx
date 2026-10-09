@@ -146,6 +146,7 @@ describe('FromToRow', () => {
     expect(getByText('To')).toBeOnTheScreen();
     expect(queryByText(/Wallet/)).not.toBeOnTheScreen();
   });
+
   it.each([
     {
       type: 'native',
@@ -164,6 +165,38 @@ describe('FromToRow', () => {
 
     expect(getByTestId('confirmation-to-address-full')).toHaveTextContent(
       address,
+    );
+  });
+
+  it('reveals the recipient address behind a saved name', () => {
+    mockUseDisplayName.mockReturnValue({
+      variant: DisplayNameVariant.Saved,
+      name: 'Saved recipient',
+      subtitle: undefined,
+      displayState: TrustSignalDisplayState.Petname,
+      icon: null,
+      isAccount: false,
+    });
+    const { getByTestId } = renderWithProvider(<FromToRow />, {
+      state: erc20TransferState,
+    });
+
+    fireEvent.press(getByTestId('confirmation-to-address'));
+
+    expect(getByTestId('confirmation-to-address-full')).toHaveTextContent(
+      '0x97cb1fdd071da9960d38306c07f146bc98b2d317',
+    );
+  });
+
+  it('reveals the full sender address', () => {
+    const { getByTestId } = renderWithProvider(<FromToRow />, {
+      state: nativeTransferState,
+    });
+
+    fireEvent.press(getByTestId('confirmation-from-address'));
+
+    expect(getByTestId('confirmation-from-address-full')).toHaveTextContent(
+      '0xdc47789de4ceff0e8fe9d15d728af7f17550c164',
     );
   });
 
