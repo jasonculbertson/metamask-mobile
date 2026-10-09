@@ -207,7 +207,13 @@ const ClickableEstimationInfo = ({
   );
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.editButton}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={styles.editButton}
+      accessibilityRole="button"
+      accessibilityLabel={strings('transactions.gas_modal.edit_network_fee')}
+      testID="confirmation-edit-network-fee"
+    >
       <Icon
         name={IconName.Edit}
         size={IconSize.Md}
