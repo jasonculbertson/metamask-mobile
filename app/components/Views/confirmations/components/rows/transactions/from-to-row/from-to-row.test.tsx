@@ -146,16 +146,25 @@ describe('FromToRow', () => {
     expect(getByText('To')).toBeOnTheScreen();
     expect(queryByText(/Wallet/)).not.toBeOnTheScreen();
   });
-
   it.each([
-    ['native', nativeTransferState, '0x97cb1fdd071da9960d38306c07f146bc98b21231'],
-    ['erc20', erc20TransferState, '0x97cb1fdd071da9960d38306c07f146bc98b2d317'],
-  ])('reveals the full %s recipient address', (_type, state, address) => {
+    {
+      type: 'native',
+      state: nativeTransferState,
+      address: '0x97cb1fdd071da9960d38306c07f146bc98b21231',
+    },
+    {
+      type: 'erc20',
+      state: erc20TransferState,
+      address: '0x97cb1fdd071da9960d38306c07f146bc98b2d317',
+    },
+  ])('reveals the full $type recipient address', ({ state, address }) => {
     const { getByTestId } = renderWithProvider(<FromToRow />, { state });
 
     fireEvent.press(getByTestId('confirmation-to-address'));
 
-    expect(getByTestId('confirmation-to-address-full')).toHaveTextContent(address);
+    expect(getByTestId('confirmation-to-address-full')).toHaveTextContent(
+      address,
+    );
   });
 
   it('closes recipient address details', () => {
