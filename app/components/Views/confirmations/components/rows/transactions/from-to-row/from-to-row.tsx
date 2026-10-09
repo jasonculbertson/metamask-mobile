@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 
 import { ConfirmationRowComponentIDs } from '../../../../ConfirmationView.testIds';
@@ -23,10 +23,13 @@ import useDisplayName, {
 } from '../../../../../../hooks/DisplayName/useDisplayName';
 import { toFormattedAddress } from '../../../../../../../util/address';
 import styleSheet from './from-to-row.styles';
+import { TooltipModal } from '../../../UI/Tooltip';
 
 interface AddressDisplayProps {
   address: string;
   displayText: string;
+  addressLabel: string;
+  testID: string;
   image?: string;
   label: React.ReactNode;
   isPoisoned?: boolean;
@@ -35,11 +38,14 @@ interface AddressDisplayProps {
 const AddressDisplay = ({
   address,
   displayText,
+  addressLabel,
+  testID,
   image,
   label,
   isPoisoned,
 }: AddressDisplayProps) => {
   const { styles } = useStyles(styleSheet, {});
+  const [isAddressOpen, setIsAddressOpen] = useState(false);
 
   return (
     <View style={styles.addressRow}>
@@ -50,10 +56,28 @@ const AddressDisplay = ({
           color={isPoisoned ? TextColor.Error : undefined}
           numberOfLines={1}
           ellipsizeMode="middle"
+          testID={testID}
+          accessibilityRole="button"
+          accessibilityLabel={`${addressLabel}: ${address}`}
+          disabled={!address}
+          onPress={address ? () => setIsAddressOpen(true) : undefined}
         >
           {displayText}
         </Text>
       </View>
+      {isAddressOpen && (
+        <TooltipModal
+          open={isAddressOpen}
+          setOpen={setIsAddressOpen}
+          title={addressLabel}
+          tooltipTestId={`${testID}-details`}
+          content={
+            <Text selectable testID={`${testID}-full`}>
+              {address}
+            </Text>
+          }
+        />
+      )}
       <Identicon
         address={address}
         imageUri={image}
@@ -124,6 +148,8 @@ const FromToRow = () => {
         <View style={styles.row}>
           <AddressDisplay
             address={fromAddress}
+            addressLabel={fromLabel}
+            testID="confirmation-from-address"
             displayText={fromDisplayText}
             image={fromImage}
             label={
@@ -141,6 +167,8 @@ const FromToRow = () => {
         <View style={[styles.row, styles.rowSeparator]}>
           <AddressDisplay
             address={toAddress as string}
+            addressLabel={toLabel}
+            testID="confirmation-to-address"
             displayText={toDisplayText}
             image={toImage}
             isPoisoned={isPoisoningSuspect}
