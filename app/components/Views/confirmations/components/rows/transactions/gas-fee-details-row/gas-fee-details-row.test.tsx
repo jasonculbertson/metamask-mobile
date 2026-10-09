@@ -1,5 +1,6 @@
 import { fireEvent } from '@testing-library/react-native';
 import React from 'react';
+import { strings } from '../../../../../../../../locales/i18n';
 import { cloneDeep } from 'lodash';
 
 import renderWithProvider from '../../../../../../../util/test/renderWithProvider';
@@ -174,6 +175,19 @@ describe('GasFeesDetailsRow', () => {
       pending: false,
       value: [],
     });
+  });
+
+  it('exposes network fee editing as a labeled button', () => {
+    const state = createStateWithSimulationData();
+    const { getByRole } = renderWithProvider(<GasFeesDetailsRow />, {
+      state,
+    });
+
+    const editButton = getByRole('button', {
+      name: strings('transactions.gas_modal.edit_network_fee'),
+    });
+
+    expect(editButton).toBeOnTheScreen();
   });
 
   it('contains required text', async () => {
